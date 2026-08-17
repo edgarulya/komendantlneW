@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ООО «Комендант Технолоджи» — внутренние инженерные и слаботочные системы</title>
+<meta name="description" content="Проектирование, поставка, монтаж и пусконаладка внутренних инженерных и слаботочных систем. Более 100 объектов введено в эксплуатацию. Москва и регионы России.">
+<meta name="theme-color" content="#F2F0EA">
+<meta property="og:title" content="ООО «Комендант Технолоджи». Инженерия, сданная под ключ">
+<meta property="og:description" content="Комплекс работ по инженерным и слаботочным системам объекта: от технического задания до сдачи в эксплуатацию.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://k-tehnology.ru/">
+<meta property="og:locale" content="ru_RU">
+<link rel="canonical" href="https://k-tehnology.ru/">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDIuMDAgMzIxLjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ItCa0L7QvNC10L3QtNCw0L3RgiDQotC10YXQvdC+0LvQvtC00LbQuCDigJQg0LfQvdCw0LoiPgogIDx0aXRsZT7QmtC+0LzQtdC90LTQsNC90YIg0KLQtdGF0L3QvtC70L7QtNC20Lgg4oCUINC30L3QsNC6PC90aXRsZT4KICA8cGF0aCBmaWxsPSIjMEYzQTkzIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi4yNSwxNTEuMjUgTDAuNzUsMTg1LjI1IEwxLjAwLDMxOS41MCBMMTQ0LjUwLDMxOS43NSBMMTQ0Ljc1LDI2MC4wMCBaIE0yMTAuMDAsMTQ0LjI1IEwxNDYuMjUsMjA3LjAwIEwyMTEuMDAsMjcyLjUwIEwyMTEuMjUsMzE5LjUwIEwzMDAuMjUsMzE5LjUwIEwzMDAuNTAsMjM5LjI1IFogTTI5OS43NSwwLjAwIEwxODMuMjUsMC4wMCBMNjEuMjUsMTI1LjUwIEwxMjAuNzUsMTg0LjUwIFogTTg0Ljc1LDAuMDAgTDEuMDAsMC43NSBMMS4yNSwxNDIuNTAgTDg1LjUwLDU4Ljc1IFoiLz4KPC9zdmc+Cg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══ Основа ══════════════════════════════════════════════════════════ */
+:root{
+  --paper:#F2F0EA;        /* ватман */
+  --paper-2:#E9E6DE;      /* поле листа */
+  --paper-3:#DEDAD0;      /* заливка ячеек штампа */
+  --ink:#15171B;          /* основная линия */
+  --ink-2:#4C515B;        /* текст */
+  --ink-3:#8B909B;        /* служебные подписи */
+  --line:#C6C1B6;         /* тонкая линия */
+  --line-2:#A29C90;       /* основная линия рамки */
+  --accent:#0F3A93;       /* синий из логотипа */
+  --accent-2:#2B6BE0;     /* тот же синий светлее: линии и наведение */
+  --accent-soft:rgba(15,58,147,.08);
+  --e:cubic-bezier(.16,1,.3,1);
+  --z-nav:40; --z-menu:60; --z-rail:38;
+}
+@media(prefers-color-scheme:dark){
+  /* Ночью лист не выжигает глаза, но остаётся листом, а не чёрной дырой.
+     Логотипный синий на тёмном не читается — берём его светлую ступень. */
+  :root{--paper:#14161A;--paper-2:#1C1F25;--paper-3:#252932;
+    --ink:#E9ECF2;--ink-2:#B2B8C4;--ink-3:#7C8291;
+    --line:#2E323A;--line-2:#464C58;
+    --accent:#5B8DEF;--accent-2:#87ABF5;--accent-soft:rgba(91,141,239,.12)}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:6.5rem;font-size:106.25%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Golos Text',system-ui,sans-serif;font-size:1rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  /* clip, а не hidden: hidden делает body контейнером прокрутки
+     и липкие элементы перестают прилипать */
+  overflow-x:clip;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:var(--paper)}
+
+/* ═══ Типографика ═════════════════════════════════════════════════════ */
+/* Oswald узкий и вертикальный — ближе всего к чертёжному шрифту ГОСТ */
+.h1,.h2,.h3,.sheet-t{font-family:'Oswald',sans-serif;font-weight:500;
+  text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+.h1{font-size:clamp(2.6rem,9vw,6.4rem)}
+.h2{font-size:clamp(1.9rem,5vw,3.4rem)}
+.h3{font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.1}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+.lead{font-size:clamp(1.0625rem,1.7vw,1.3125rem);line-height:1.55;
+  color:var(--ink-2);max-width:44ch}
+p{color:var(--ink-2)}
+
+/* ═══ Лист ════════════════════════════════════════════════════════════ */
+/* Каждый раздел — лист документации со своей рамкой и номером. */
+.sheet{position:relative;padding:clamp(3.5rem,8vw,7rem) 0;
+  border-top:1px solid var(--line-2)}
+.sheet:first-of-type{border-top:0}
+.in{width:min(100% - 2.4rem,88rem);margin-inline:auto}
+@media(min-width:900px){.in{width:min(100% - 6rem,88rem)}}
+
+/* Номер листа и наименование — как основная надпись в углу */
+.sheet-h{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;
+  padding-bottom:.7rem;border-bottom:1px solid var(--line);margin-bottom:2.4rem}
+.sheet-n{font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--accent);letter-spacing:.1em;flex-shrink:0}
+.sheet-t{font-size:clamp(1.4rem,3.4vw,2.2rem)}
+.sheet-note{margin-left:auto;font-family:'JetBrains Mono',monospace;
+  font-size:.6875rem;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:640px){.sheet-note{display:none}}
+
+/* ═══ Координатная рамка страницы ═════════════════════════════════════ */
+/* Засечки по вертикальному краю — только украшение, поэтому скрыты
+   от программ чтения с экрана и не мешают на узком экране. */
+.frame{position:fixed;inset:0;pointer-events:none;z-index:1}
+.frame::before,.frame::after{content:'';position:absolute;top:0;bottom:0;
+  width:1px;background:var(--line)}
+.frame::before{left:1.2rem}.frame::after{right:1.2rem}
+@media(max-width:900px){.frame{display:none}}
+
+/* ═══ Шапка ═══════════════════════════════════════════════════════════ */
+.bar{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
+.bar-in{display:flex;align-items:stretch;
+  width:min(100% - 2.4rem,88rem);margin-inline:auto;height:3.9rem}
+@media(min-width:900px){.bar-in{width:min(100% - 6rem,88rem)}}
+.brand{display:flex;align-items:center;gap:.7rem;padding-right:1.2rem;
+  border-right:1px solid var(--line);min-width:0}
+.brand img{width:1.9rem;height:1.9rem;flex-shrink:0}
+.brand-t{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.brand-t b{font-family:'Oswald',sans-serif;font-weight:600;font-size:.9375rem;
+  text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.brand-t span{font-family:'JetBrains Mono',monospace;font-size:.5625rem;
+  color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase}
+.bar-mid{display:none;align-items:center;gap:.4rem;padding-inline:1.2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--ink-3);
+  letter-spacing:.06em;text-transform:uppercase}
+@media(min-width:1040px){.bar-mid{display:flex}}
+.dotlive{width:6px;height:6px;background:var(--accent);border-radius:50%;
+  animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.bar-r{display:flex;align-items:stretch;margin-left:auto}
+.bar-tel{display:none;align-items:center;padding-inline:1.2rem;
+  border-left:1px solid var(--line);font-family:'JetBrains Mono',monospace;
+  font-size:.8125rem;transition:background .25s,color .25s}
+@media(min-width:760px){.bar-tel{display:flex}}
+.bar-tel:hover{background:var(--accent);color:var(--paper)}
+.burger{display:flex;align-items:center;gap:.6rem;padding-inline:1.1rem;
+  border-left:1px solid var(--line);font-family:'JetBrains Mono',monospace;
+  font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .25s,color .25s}
+.burger:hover{background:var(--ink);color:var(--paper)}
+.burger i{display:block;width:16px;height:9px;position:relative;flex-shrink:0}
+.burger i::before,.burger i::after{content:'';position:absolute;left:0;right:0;
+  height:1.5px;background:currentColor;transition:transform .4s var(--e)}
+.burger i::before{top:0}.burger i::after{bottom:0}
+body.open .burger i::before{transform:translateY(3.75px) rotate(45deg)}
+body.open .burger i::after{transform:translateY(-3.75px) rotate(-45deg)}
+
+/* ═══ Меню ════════════════════════════════════════════════════════════ */
+/* Раскрывается как разворачиваемый лист: шторка идёт сверху вниз,
+   строки выезжают по очереди. */
+.menu{position:fixed;inset:0;z-index:var(--z-menu);
+  background:var(--ink);color:var(--paper);
+  clip-path:inset(0 0 100% 0);transition:clip-path .72s var(--e);
+  display:flex;flex-direction:column;overflow-y:auto}
+body.open .menu{clip-path:inset(0 0 0 0)}
+.menu-top{display:flex;align-items:center;justify-content:space-between;
+  height:3.9rem;padding-inline:1.2rem;border-bottom:1px solid rgba(242,240,234,.16);
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;
+  letter-spacing:.12em;text-transform:uppercase;flex-shrink:0}
+@media(min-width:900px){.menu-top{padding-inline:3rem}}
+.menu-brand{display:flex;align-items:center;gap:.7rem;min-width:0}
+.menu-brand img{width:1.6rem;height:1.6rem;flex-shrink:0}
+@media(max-width:560px){.menu-brand{font-size:.625rem}}
+.menu-x{padding:.5rem .9rem;border:1px solid rgba(242,240,234,.3);
+  transition:background .25s,color .25s}
+.menu-x:hover{background:var(--paper);color:var(--ink)}
+.menu-list{flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:2.5rem 1.2rem}
+@media(min-width:900px){.menu-list{padding:2rem 3rem}}
+.mrow{display:flex;align-items:baseline;gap:1.2rem;padding:.75rem 0;
+  border-bottom:1px solid rgba(242,240,234,.14);overflow:hidden}
+.mrow:first-child{border-top:1px solid rgba(242,240,234,.14)}
+.mrow b{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:clamp(1.6rem,5.5vw,3.2rem);line-height:1;
+  display:block;transform:translateY(110%);transition:transform .6s var(--e)}
+body.open .mrow b{transform:translateY(0)}
+.mrow:nth-child(1) b{transition-delay:.16s}
+.mrow:nth-child(2) b{transition-delay:.22s}
+.mrow:nth-child(3) b{transition-delay:.28s}
+.mrow:nth-child(4) b{transition-delay:.34s}
+.mrow:nth-child(5) b{transition-delay:.40s}
+.mrow:nth-child(6) b{transition-delay:.46s}
+.mrow:nth-child(7) b{transition-delay:.52s}
+.mrow span{font-family:'JetBrains Mono',monospace;font-size:.6875rem;
+  color:rgba(242,240,234,.45);flex-shrink:0;width:2.5rem}
+.mrow em{margin-left:auto;font-style:normal;font-size:.8125rem;
+  color:rgba(242,240,234,.5);text-align:right;display:none}
+@media(min-width:760px){.mrow em{display:block}}
+.mrow:hover b{color:var(--accent)}
+.menu-foot{padding:1.5rem 1.2rem;border-top:1px solid rgba(242,240,234,.16);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:rgba(242,240,234,.6);flex-shrink:0}
+@media(min-width:900px){.menu-foot{padding:1.5rem 3rem}}
+.menu-foot a:hover{color:var(--accent)}
+
+/* ═══ Титульный лист: обложка комплекта ═══════════════════════════════
+   Внутри комплекта листы белые, а обложка тёмная. Здесь то же самое:
+   под титулом идёт видео объекта, поэтому лист становится тёмным, и
+   светлый текст ложится на кадр без осветления самого кадра. */
+.title{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding-top:calc(3.9rem + clamp(2rem,5vw,4rem));
+  padding-bottom:clamp(2.5rem,6vw,4.5rem);
+  background:#0A0C10;color:#F2F0EA;overflow:hidden;border-top:0;
+  /* Локальная палитра обложки: логотипный синий на тёмном не читается */
+  --accent:#7FA8F7;--ink-2:rgba(242,240,234,.78);--ink-3:rgba(242,240,234,.55);
+  --line:rgba(242,240,234,.22);--line-2:rgba(242,240,234,.34)}
+.title .in{position:relative;z-index:2;width:100%}
+.title-bg{position:absolute;inset:0;z-index:0;background:#0A0C10}
+/* Оба слоя позиционированы явно, и порядок задан числами.
+   Раньше кадр был позиционирован, а видео нет — и кадр накрывал его
+   целиком: ролик играл, а на экране стояла картинка. Позиционированный
+   элемент рисуется поверх непозиционированного, сколько бы раз он ни
+   стоял выше в разметке. */
+.title-bg video,.title-bg img{position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;display:block}
+.title-bg img{z-index:0}
+.title-bg video{z-index:1;opacity:0;transition:opacity 1.1s ease}
+.title-bg video.on{opacity:1}
+/* Вуаль. Слева, где текст, кадр приглушён почти полностью; справа
+   остаётся читаемым. Обычные градиенты, без фильтров: фильтр поверх
+   играющего видео роняет частоту кадров. */
+/* Плотность подобрана расчётом, а не на глаз: по семи кадрам ролика
+   худший контраст светлого текста в текстовой зоне выходит 8.8:1 при
+   вуали .74, то есть кадр остаётся видимым на четверть, а весь текст,
+   включая мелкий, проходит норму с запасом. */
+.title-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(10,12,16,.74) 0%,rgba(10,12,16,.62) 40%,
+      rgba(10,12,16,.34) 74%,rgba(10,12,16,.22) 100%),
+    linear-gradient(0deg,rgba(10,12,16,.72) 0%,rgba(10,12,16,0) 46%)}
+@media(max-width:780px){
+  /* На узком экране текст идёт во всю ширину, кадр приглушаем ровнее */
+  .title-veil{background:linear-gradient(0deg,rgba(10,12,16,.86) 0%,
+    rgba(10,12,16,.7) 50%,rgba(10,12,16,.6) 100%)}
+}
+.title .btn{border-color:rgba(242,240,234,.5);color:#F2F0EA}
+.title .btn::before{background:#F2F0EA}
+.title .btn:hover{color:#0A0C10}
+.title .btn-acc{border-color:#F2F0EA;background:#F2F0EA;color:#0A0C10}
+.title .btn-acc::before{background:var(--accent)}
+.title .btn-acc:hover{color:#0A0C10}
+
+/* Метка прокрутки: линия ползёт вниз и повторяется */
+.scroller{position:absolute;left:50%;bottom:1.1rem;z-index:2;translate:-50% 0;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  font-family:'JetBrains Mono',monospace;font-size:.5625rem;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(242,240,234,.5)}
+.scroller i{display:block;width:1px;height:2.4rem;background:rgba(242,240,234,.25);
+  position:relative;overflow:hidden}
+.scroller i::after{content:'';position:absolute;left:0;width:1px;height:1rem;
+  background:#F2F0EA;animation:trickle 2.4s var(--e) infinite}
+@keyframes trickle{0%{top:-1rem}60%,100%{top:2.4rem}}
+@media(max-width:780px){.scroller{display:none}}
+@media(prefers-reduced-motion:reduce){.scroller i::after{animation:none;top:0}}
+
+.title-eyebrow{display:flex;align-items:center;gap:.8rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--ink-3);
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.4rem}
+.title-eyebrow::after{content:'';flex:1;height:1px;background:var(--line)}
+
+/* Пока обложка на экране, шапка растворяется в кадре. Размытие в этот
+   момент отключено: размывать движущееся видео дорого. */
+.bar-logo-l{display:none}
+body.cover .bar{background:transparent;backdrop-filter:none;
+  border-bottom-color:rgba(242,240,234,.18);color:#F2F0EA}
+body.cover .brand{border-right-color:rgba(242,240,234,.18)}
+body.cover .bar-tel,body.cover .burger{border-left-color:rgba(242,240,234,.18)}
+body.cover .brand-t span,body.cover .bar-mid{color:rgba(242,240,234,.6)}
+body.cover .bar-logo-d{display:none}
+body.cover .bar-logo-l{display:block}
+body.cover .burger:hover{background:#F2F0EA;color:#0A0C10}
+body.cover .bar-tel:hover{background:#F2F0EA;color:#0A0C10}
+
+/* Заголовок прочерчивается: маска уезжает вправо, строка за строкой */
+.draw{display:block;overflow:hidden}
+.draw>span{display:block;clip-path:inset(0 100% 0 0);
+  animation:draw 1.05s var(--e) forwards}
+@keyframes draw{to{clip-path:inset(0 0 0 0)}}
+.draw:nth-of-type(1)>span{animation-delay:.15s}
+.draw:nth-of-type(2)>span{animation-delay:.32s}
+.draw:nth-of-type(3)>span{animation-delay:.49s}
+.acc{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){.draw>span{animation:none;clip-path:none}}
+
+/* Размерная линия: то же, чем на чертеже показывают габарит */
+.dim{display:flex;align-items:center;gap:.7rem;margin:1.8rem 0 0;
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--ink-3);
+  letter-spacing:.08em}
+.dim-l{flex:1;height:1px;background:var(--line-2);position:relative;
+  transform:scaleX(0);transform-origin:left;
+  animation:dimgrow 1s var(--e) .7s forwards}
+@keyframes dimgrow{to{transform:scaleX(1)}}
+.dim-l::before,.dim-l::after{content:'';position:absolute;top:-3px;
+  width:1px;height:7px;background:var(--line-2)}
+.dim-l::before{left:0}.dim-l::after{right:0}
+@media(prefers-reduced-motion:reduce){.dim-l{animation:none;transform:none}}
+
+.title-grid{display:grid;gap:2rem;margin-top:2.6rem}
+@media(min-width:960px){.title-grid{grid-template-columns:1.1fr .9fr;
+  gap:3rem;align-items:end}}
+.title-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+
+/* ═══ Кнопки ══════════════════════════════════════════════════════════ */
+/* Прямоугольник без скруглений, заливка выезжает снизу — как штамп,
+   который прикладывают к листу. */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.7rem;
+  padding:.95rem 1.5rem;border:1px solid var(--ink);overflow:hidden;
+  font-family:'JetBrains Mono',monospace;font-size:.8125rem;
+  letter-spacing:.06em;text-transform:uppercase;isolation:isolate;
+  transition:color .3s}
+.btn::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--ink);
+  transform:translateY(101%);transition:transform .45s var(--e)}
+.btn:hover{color:var(--paper)}
+.btn:hover::before{transform:translateY(0)}
+.btn svg{width:1rem;height:1rem;transition:transform .4s var(--e)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-acc{border-color:var(--accent);background:var(--accent);color:var(--paper)}
+.btn-acc::before{background:var(--ink)}
+.btn-sm{padding:.6rem 1rem;font-size:.6875rem}
+
+/* ═══ Бегущая строка систем ═══════════════════════════════════════════ */
+.tape{border-block:1px solid var(--line-2);background:var(--paper-2);
+  overflow:hidden;padding:.85rem 0}
+.tape-in{display:flex;width:max-content;animation:run 46s linear infinite}
+.tape:hover .tape-in{animation-play-state:paused}
+@keyframes run{to{transform:translateX(-50%)}}
+.tape-i{display:flex;align-items:center;gap:.9rem;padding-inline:1.4rem;
+  font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:1.0625rem;letter-spacing:.04em;white-space:nowrap;color:var(--ink)}
+.tape-i::after{content:'';width:5px;height:5px;background:var(--accent);
+  transform:rotate(45deg)}
+@media(prefers-reduced-motion:reduce){.tape-in{animation:none}}
+
+/* ═══ Экспликация: таблица показателей ════════════════════════════════ */
+.expl{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-2)}
+@media(min-width:680px){.expl{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.expl{grid-template-columns:repeat(4,1fr)}}
+.expl-c{background:var(--paper);padding:1.6rem 1.4rem;position:relative;
+  transition:background .35s}
+.expl-c:hover{background:var(--paper-2)}
+.expl-c b{display:block;font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;
+  font-variant-numeric:tabular-nums}
+.expl-c span{display:block;margin-top:.5rem;font-size:.875rem;color:var(--ink-2)}
+.expl-c i{position:absolute;top:1rem;right:1.2rem;font-style:normal;
+  font-family:'JetBrains Mono',monospace;font-size:.625rem;color:var(--ink-3)}
+
+/* ═══ Двухколонник с выноской ═════════════════════════════════════════ */
+.duo{display:grid;gap:2rem}
+@media(min-width:900px){.duo{grid-template-columns:1fr 1fr;gap:3rem;align-items:start}}
+.duo-txt p+p{margin-top:1rem}
+.figure{position:relative;border:1px solid var(--line-2);background:var(--paper-2)}
+.figure img{width:100%}
+.figure figcaption{display:flex;gap:.8rem;padding:.7rem .9rem;
+  border-top:1px solid var(--line-2);
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.06em}
+.figure figcaption b{color:var(--accent);flex-shrink:0}
+/* Крестики совмещения в углах кадра */
+.figure::before,.figure::after{content:'';position:absolute;width:11px;height:11px;
+  border:1px solid var(--accent);border-width:1px 0 0 1px;z-index:2}
+.figure::before{top:-1px;left:-1px}
+.figure::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+
+/* ═══ Ведомость систем ════════════════════════════════════════════════ */
+/* Строка раскрывается вниз, как позиция в спецификации. */
+.spec{border-top:1px solid var(--line-2)}
+.spec-row{border-bottom:1px solid var(--line)}
+.spec-h{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;
+  padding:1.35rem .4rem;transition:padding-left .35s var(--e),background .3s}
+.spec-h:hover{padding-left:1.1rem;background:var(--paper-2)}
+.spec-h em{font-style:normal;font-family:'JetBrains Mono',monospace;
+  font-size:.6875rem;color:var(--accent);width:2.6rem;flex-shrink:0}
+.spec-h b{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:clamp(1.05rem,2.6vw,1.6rem);line-height:1.1;letter-spacing:.01em}
+.spec-h i{margin-left:auto;flex-shrink:0;display:block;width:14px;height:14px;
+  position:relative}
+.spec-h i::before,.spec-h i::after{content:'';position:absolute;background:var(--ink);
+  transition:transform .4s var(--e),opacity .3s}
+.spec-h i::before{left:0;right:0;top:6.25px;height:1.5px}
+.spec-h i::after{top:0;bottom:0;left:6.25px;width:1.5px}
+.spec-row.on .spec-h i::after{transform:rotate(90deg);opacity:0}
+.spec-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--e)}
+.spec-row.on .spec-body{grid-template-rows:1fr}
+.spec-body>div{overflow:hidden}
+.spec-in{padding:0 .4rem 1.6rem 3.6rem}
+.spec-in p{max-width:62ch;margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{padding:.35rem .7rem;border:1px solid var(--line-2);background:var(--paper-2);
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--ink-2);
+  transition:border-color .25s,color .25s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ═══ Разрез: безопасность на вершине ═════════════════════════════════ */
+/* Слои идут снизу вверх, верхний выделен — это и есть заявление
+   о приоритете технической безопасности. */
+.cut{display:flex;flex-direction:column-reverse;gap:1px;background:var(--line);
+  border:1px solid var(--line-2)}
+.cut-l{background:var(--paper);padding:1.3rem 1.4rem;display:flex;gap:1.1rem;
+  align-items:baseline;position:relative;transition:background .35s,padding-left .35s var(--e)}
+.cut-l:hover{background:var(--paper-2);padding-left:1.9rem}
+.cut-l em{font-style:normal;font-family:'JetBrains Mono',monospace;
+  font-size:.6875rem;color:var(--ink-3);width:2.4rem;flex-shrink:0}
+.cut-l b{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:1.0625rem;letter-spacing:.02em}
+.cut-l span{margin-left:auto;font-size:.875rem;color:var(--ink-2);
+  text-align:right;max-width:40ch;display:none}
+@media(min-width:820px){.cut-l span{display:block}}
+.cut-l.top{background:var(--accent);color:var(--paper)}
+.cut-l.top:hover{background:var(--accent)}
+.cut-l.top em,.cut-l.top span{color:rgba(242,240,234,.82)}
+/* Штриховка 45° на верхнем слое — так на чертеже выделяют сечение */
+.cut-l.top::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(45deg,transparent 0 6px,
+    rgba(242,240,234,.14) 6px 7px)}
+
+/* ═══ Технологическая карта ═══════════════════════════════════════════ */
+.flow{position:relative;display:grid;gap:1px;background:var(--line);
+  border:1px solid var(--line-2)}
+@media(min-width:760px){.flow{grid-template-columns:repeat(5,1fr)}}
+.flow-s{background:var(--paper);padding:1.5rem 1.3rem 1.7rem;
+  display:flex;flex-direction:column;gap:.7rem;position:relative;
+  transition:background .35s}
+.flow-s:hover{background:var(--paper-2)}
+.flow-n{font-family:'JetBrains Mono',monospace;font-size:.6875rem;color:var(--accent);
+  letter-spacing:.1em}
+.flow-s h3{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:1.0625rem;line-height:1.15;letter-spacing:.02em}
+.flow-s p{font-size:.875rem;line-height:1.5}
+/* Линия хода работ: заполняется по мере прокрутки */
+.flow-bar{height:2px;background:var(--line);margin-top:1rem;position:relative;
+  overflow:hidden}
+.flow-bar::after{content:'';position:absolute;inset:0 100% 0 0;background:var(--accent);
+  transition:inset .8s var(--e)}
+.flow-wrap.on .flow-bar::after{inset:0}
+
+/* ═══ Спецификация оборудования ═══════════════════════════════════════ */
+.pick{display:flex;gap:0;border:1px solid var(--line-2);
+  margin-bottom:2rem;flex-wrap:wrap}
+.pick button{flex:1 1 auto;padding:.9rem 1.1rem;border-right:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);
+  transition:background .3s,color .3s;white-space:nowrap}
+.pick button:last-child{border-right:0}
+.pick button:hover{color:var(--ink)}
+.pick button[aria-selected=true]{background:var(--ink);color:var(--paper)}
+.pane{display:none}
+.pane.on{display:block;animation:fade .5s var(--e)}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-2)}
+@media(min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--paper);padding:1.4rem;display:flex;flex-direction:column;
+  gap:.8rem;transition:background .35s}
+.card:hover{background:var(--paper-2)}
+.card img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;
+  border:1px solid var(--line);padding:.6rem}
+.card h4{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:1.0625rem;letter-spacing:.02em}
+.card dl{display:grid;gap:.3rem;font-family:'JetBrains Mono',monospace;
+  font-size:.75rem}
+.card dl div{display:flex;justify-content:space-between;gap:.8rem;
+  padding-bottom:.3rem;border-bottom:1px dotted var(--line)}
+.card dt{color:var(--ink-3)}
+.card dd{text-align:right}
+.card .btn{margin-top:auto;justify-content:center}
+
+/* ═══ Колесо работ ════════════════════════════════════════════════════
+   Квадратные карточки стоят по окружности и наклонены по касательной,
+   как цифры на циферблате. Круг проворачивается при прокрутке.
+   Наведение выпрямляет и приближает карточку, нажатие показывает оборот.
+
+   Карточка — div с role="button", а не <button>: элементы формы не
+   поддерживают трёхмерные преобразования, внутри кнопки переворот
+   не работает. */
+.wh-stage{position:relative;width:100%;aspect-ratio:1/1;max-width:54rem;
+  margin-inline:auto;--r:19rem;--card:11rem}
+.wh-ring{position:absolute;inset:0;transform:rotate(var(--rot,0deg));
+  will-change:transform}
+.wh-slot{position:absolute;left:50%;top:50%;
+  width:var(--card);height:var(--card);
+  margin-left:calc(var(--card)/-2);margin-top:calc(var(--card)/-2);
+  transform:rotate(var(--a)) translateY(calc(var(--r)*-1));
+  perspective:900px;cursor:pointer}
+.wh-card{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+  transition:transform .55s var(--e)}
+.wh-slot[aria-expanded="true"] .wh-card{transform:rotateY(180deg)}
+
+/* На большом экране наведение выпрямляет карточку встречным поворотом:
+   собственный угол плюс текущий угол круга, оба со знаком минус. */
+@media(min-width:681px) and (hover:hover){
+  .wh-slot:hover,.wh-slot:focus-within{z-index:10}
+  .wh-slot:hover .wh-card,.wh-slot:focus-within .wh-card{
+    transform:rotate(calc(-1*(var(--a) + var(--rot,0deg)))) scale(1.9)}
+  .wh-slot[aria-expanded="true"] .wh-card{
+    transform:rotate(calc(-1*(var(--a) + var(--rot,0deg)))) scale(1.9) rotateY(180deg)}
+  .wh-slot:hover .wh-face,.wh-slot:focus-within .wh-face{
+    border-color:var(--accent);box-shadow:0 1.2rem 2.6rem rgba(21,23,27,.26)}
+}
+.wh-face{position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid var(--line-2);background:var(--paper);overflow:hidden;
+  box-shadow:0 .5rem 1.4rem rgba(21,23,27,.13)}
+.wh-front img{width:100%;height:100%;object-fit:cover}
+/* Пока снимка с площадки нет, лицевая сторона держит вид работ
+   типографикой. Кадр подставляется без правки разметки. */
+.wh-ph{width:100%;height:100%;display:flex;align-items:center;
+  justify-content:center;padding:.9rem;text-align:center;
+  background:var(--accent);color:#F2F0EA;
+  font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:.75rem;line-height:1.15;letter-spacing:.02em}
+.wh-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:.5rem .55rem;
+  background:linear-gradient(to top,rgba(21,23,27,.88),rgba(21,23,27,0));
+  color:#F2F0EA;font-family:'Oswald',sans-serif;font-weight:500;
+  text-transform:uppercase;font-size:.5rem;line-height:1.1;letter-spacing:.02em;
+  opacity:0;transition:opacity .35s var(--e)}
+.wh-slot:hover .wh-cap,.wh-slot:focus-within .wh-cap{opacity:1}
+.wh-pos{position:absolute;left:0;top:0;z-index:2;
+  font-family:'JetBrains Mono',monospace;font-size:.5625rem;letter-spacing:.1em;
+  background:var(--paper);color:var(--accent);padding:.22rem .4rem;
+  border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.wh-back{transform:rotateY(180deg);background:var(--paper-2);
+  padding:.7rem .75rem;display:flex;flex-direction:column;gap:.3rem}
+.wh-kind{font-family:'JetBrains Mono',monospace;font-size:.5rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.wh-name{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:.8125rem;line-height:1.05;letter-spacing:.01em;
+  padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+.wh-back ul{list-style:none;margin-top:.1rem}
+.wh-back li{display:flex;gap:.3rem;padding:.14rem 0;
+  font-size:.5625rem;line-height:1.3;color:var(--ink-2)}
+.wh-back li::before{content:'—';color:var(--accent);flex-shrink:0}
+
+/* Ступица: текст в середине, он не вращается */
+.wh-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(24rem,58%);text-align:center;pointer-events:none;z-index:3}
+.wh-hub b{display:block;font-family:'Oswald',sans-serif;font-weight:500;
+  text-transform:uppercase;line-height:.94;letter-spacing:.01em;
+  font-size:clamp(1.6rem,3.6vw,2.9rem)}
+.wh-hub span{display:block;margin-top:.5rem;color:var(--ink-2);
+  font-size:.9375rem;line-height:1.4}
+.wh-hub i{display:block;margin-top:1rem;font-style:normal;
+  font-family:'JetBrains Mono',monospace;font-size:.625rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.wh-bar{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:1rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3)}
+.wh-bar .now{color:var(--ink)}
+@media(max-width:1100px){.wh-stage{--r:15.5rem;--card:9rem}}
+@media(max-width:860px){.wh-stage{--r:12.5rem;--card:7.5rem}
+  .wh-back li{font-size:.5rem}}
+
+/* Телефон: окружность нечитаема, показываем ленту с прилипанием */
+.wh-swipe{display:none}
+.wh-hub i.touch{display:none}
+@media(max-width:680px){
+  .wh-stage{aspect-ratio:auto;max-width:none;--card:min(17rem,72vw)}
+  .wh-ring{position:static;transform:none!important;display:flex;gap:1px;
+    overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;background:var(--line-2);
+    border:1px solid var(--line-2)}
+  .wh-slot{position:static;flex:0 0 var(--card);height:var(--card);margin:0;
+    transform:none!important;scroll-snap-align:center;perspective:1000px}
+  .wh-face{border:0;box-shadow:none}
+  .wh-hub{position:static;transform:none;width:auto;margin:0 0 1.4rem;
+    text-align:left;pointer-events:auto}
+  .wh-hub b{font-size:clamp(1.5rem,7vw,2rem)}
+  .wh-hub i.hover{display:none}
+  .wh-hub i.touch{display:block}
+  /* Оборот читается с руки, поэтому шрифты крупнее */
+  .wh-back{padding:1rem 1.05rem;gap:.45rem}
+  .wh-kind{font-size:.6875rem}
+  .wh-name{font-size:1.0625rem;padding-bottom:.5rem}
+  .wh-back li{font-size:.8125rem;padding:.22rem 0}
+  .wh-pos{font-size:.6875rem;padding:.3rem .5rem}
+  .wh-ph{font-size:1.0625rem}
+  .wh-swipe{display:flex;align-items:center;gap:.4rem;margin-top:.7rem;
+    font-family:'JetBrains Mono',monospace;font-size:.625rem;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+}
+@media(prefers-reduced-motion:reduce){.wh-ring,.wh-card{transition:none}}
+
+/* ═══ Барабан камер ═══════════════════════════════════════════════════ */
+/* Три позиции стоят по дуге: центральная развёрнута к читателю, соседние
+   отклонены и уведены вглубь. Положение считает JS, здесь только сцена,
+   вид карточки и переходы. */
+.drum{margin-top:.5rem}
+.drum-stage{position:relative;height:clamp(20rem,44vw,26rem);
+  perspective:1500px;perspective-origin:50% 44%;margin-bottom:1.4rem}
+.drum-card{position:absolute;top:0;left:50%;
+  width:clamp(11.5rem,26vw,16rem);margin-left:clamp(-8rem,-13vw,-5.75rem);
+  background:var(--paper);border:1px solid var(--line-2);
+  transform-style:preserve-3d;cursor:pointer;text-align:left;
+  transition:transform .7s var(--e),opacity .55s,filter .55s,border-color .3s}
+.drum-shot{aspect-ratio:1;background:#fff;border-bottom:1px solid var(--line);
+  overflow:hidden}
+.drum-shot img{width:100%;height:100%;object-fit:contain;padding:.6rem}
+.drum-meta{padding:.85rem .95rem}
+.drum-meta b{display:block;font-family:'Oswald',sans-serif;font-weight:500;
+  text-transform:uppercase;font-size:1.0625rem;letter-spacing:.02em;margin-top:.25rem}
+.drum-meta u{display:block;text-decoration:none;font-family:'JetBrains Mono',monospace;
+  font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.drum-meta span{display:block;font-size:.75rem;color:var(--ink-3);margin-top:.1rem}
+.drum-card.on{border-color:var(--accent)}
+.drum-card.on::after{content:'';position:absolute;inset:-1px;pointer-events:none;
+  border:1px solid var(--accent)}
+.drum-stage.grab{cursor:grab}
+.drum-stage.grabbing{cursor:grabbing}
+
+.drum-nav{display:flex;align-items:center;justify-content:center;gap:1rem}
+.drum-arrow{width:2.7rem;height:2.7rem;border:1px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,color .25s}
+.drum-arrow svg{width:1.1rem;height:1.1rem}
+.drum-arrow:hover{background:var(--ink);color:var(--paper)}
+.drum-count{font-family:'JetBrains Mono',monospace;font-size:.8125rem;
+  font-variant-numeric:tabular-nums;min-width:5.5rem;text-align:center;
+  color:var(--ink-3);letter-spacing:.08em}
+
+/* Характеристики выбранной позиции: подменяются с подъёмом */
+.drum-detail{position:relative;margin-top:1.5rem;padding-top:1.5rem;
+  border-top:1px solid var(--line)}
+.drum-d{opacity:0;transform:translateY(16px);pointer-events:none;
+  position:absolute;inset:1.5rem 0 auto;
+  transition:opacity .5s,transform .6s var(--e)}
+.drum-d.on{opacity:1;transform:none;pointer-events:auto;position:relative;inset:auto}
+.drum-d .dgrid{display:grid;gap:1.4rem}
+@media(min-width:820px){.drum-d .dgrid{grid-template-columns:1fr 1fr;gap:2.4rem;
+  align-items:start}}
+.drum-d h4{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:.01em;margin-bottom:.4rem}
+.drum-d .short{color:var(--ink-2);margin-bottom:1rem;max-width:44ch}
+.card-dl{display:grid;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.8125rem}
+.card-dl div{display:flex;justify-content:space-between;gap:1rem;
+  padding-bottom:.45rem;border-bottom:1px dotted var(--line)}
+.card-dl dt{color:var(--ink-3)}
+.card-dl dd{text-align:right}
+@media(prefers-reduced-motion:reduce){
+  /* Без анимации барабан складывается в обычный ряд */
+  .drum-stage{height:auto;perspective:none;display:grid;gap:1px;
+    background:var(--line);border:1px solid var(--line-2)}
+  .drum-card{position:static;margin:0;width:auto;transform:none!important;
+    opacity:1!important;filter:none!important;border:0}
+  .drum-d{position:relative;inset:auto;opacity:1;transform:none}
+}
+
+/* ═══ Виджет подбора станции ══════════════════════════════════════════ */
+.calc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-2);
+  margin-top:2rem}
+@media(min-width:920px){.calc{grid-template-columns:1.1fr .9fr}}
+.calc-a,.calc-b{background:var(--paper);padding:1.6rem}
+@media(min-width:760px){.calc-a,.calc-b{padding:2rem}}
+.calc h4{font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:1.0625rem;letter-spacing:.03em;margin-bottom:1.1rem;
+  padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.load{display:flex;align-items:flex-start;gap:.85rem;padding:.75rem 0;
+  border-bottom:1px dotted var(--line);cursor:pointer;transition:padding-left .3s}
+.load:last-of-type{border-bottom:0}
+.load:hover{padding-left:.35rem}
+.load input{appearance:none;flex-shrink:0;width:1.05rem;height:1.05rem;
+  margin-top:.22rem;border:1px solid var(--line-2);cursor:pointer;position:relative;
+  transition:background .25s,border-color .25s}
+.load input:checked{background:var(--accent);border-color:var(--accent)}
+.load input:checked::after{content:'';position:absolute;left:.3rem;top:.08rem;
+  width:.26rem;height:.55rem;border:solid #fff;border-width:0 2px 2px 0;rotate:45deg}
+.load b{display:block;font-size:.9375rem;font-weight:500}
+.load em{display:block;font-style:normal;font-size:.8125rem;color:var(--ink-3);
+  margin-top:.1rem}
+.load .kw{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--ink-3);white-space:nowrap;padding-top:.15rem}
+.hrs{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.hrs label{display:flex;justify-content:space-between;font-size:.9375rem;
+  margin-bottom:.6rem}
+.hrs output{font-family:'JetBrains Mono',monospace;color:var(--accent)}
+input[type=range]{width:100%;appearance:none;height:2px;background:var(--line-2);
+  cursor:pointer}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:.95rem;height:.95rem;
+  background:var(--accent);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:.95rem;height:.95rem;background:var(--accent);
+  border:0}
+.res{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.8rem 0;border-bottom:1px dotted var(--line)}
+.res:last-of-type{border-bottom:0}
+.res dt{font-size:.9375rem;color:var(--ink-3)}
+.res dd{font-family:'JetBrains Mono',monospace;font-size:1.1875rem;
+  font-variant-numeric:tabular-nums}
+.verdict{margin-top:1.2rem;padding:.95rem 1.05rem;border-left:2px solid var(--accent);
+  background:var(--accent-soft);font-size:.9375rem;line-height:1.55;color:var(--ink-2)}
+
+/* ═══ География ═══════════════════════════════════════════════════════ */
+.geo{display:grid;gap:2rem}
+@media(min-width:940px){.geo{grid-template-columns:1.3fr .7fr;gap:2.5rem}}
+.cities{display:grid;gap:1px;background:var(--line);border:1px solid var(--line-2)}
+.city{background:var(--paper);padding:.85rem 1rem;display:flex;
+  justify-content:space-between;gap:1rem;transition:background .3s,padding-left .3s}
+.city:hover{background:var(--paper-2);padding-left:1.5rem}
+.city b{font-weight:500;font-size:.9375rem}
+.city span{font-family:'JetBrains Mono',monospace;font-size:.6875rem;
+  color:var(--ink-3)}
+.globe-box{position:relative;aspect-ratio:1;max-width:34rem;margin-inline:auto;
+  width:100%;opacity:0;transition:opacity .9s}
+.globe-box.ready{opacity:1}
+.globe-box canvas{width:100%;height:100%;display:block;cursor:grab}
+.globe-box canvas:active{cursor:grabbing}
+
+/* ═══ Штамп: контакты и реквизиты ═════════════════════════════════════ */
+/* Настоящая основная надпись: ячейки с подписями полей. */
+.stamp{border:1px solid var(--ink);display:grid;gap:0;
+  grid-template-columns:1fr;margin-top:2.4rem}
+@media(min-width:760px){.stamp{grid-template-columns:repeat(3,1fr)}}
+.cell{border-bottom:1px solid var(--line-2);border-right:0;padding:1.1rem 1.2rem}
+@media(min-width:760px){.cell{border-right:1px solid var(--line-2)}
+  .cell:nth-child(3n){border-right:0}}
+.cell:last-child{border-bottom:0}
+.cell u{display:block;text-decoration:none;font-family:'JetBrains Mono',monospace;
+  font-size:.625rem;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:.4rem}
+.cell b{display:block;font-size:1rem;font-weight:500;line-height:1.4}
+.cell .big{font-family:'Oswald',sans-serif;font-weight:500;font-size:1.35rem;
+  letter-spacing:.01em}
+.cell a:hover{color:var(--accent)}
+.cell-wide{grid-column:1/-1}
+
+/* ═══ Линейка листов справа ═══════════════════════════════════════════ */
+/* Заменяет привычное меню-док: показывает, на каком листе читатель. */
+.rail{position:fixed;inset:auto 0 auto auto;top:50%;translate:0 -50%;
+  z-index:var(--z-rail);display:none;flex-direction:column;gap:0;
+  padding-right:.35rem;opacity:0;transition:opacity .5s}
+@media(min-width:1100px){.rail{display:flex}}
+.rail.show{opacity:1}
+body.open .rail{opacity:0;pointer-events:none}
+.rail a{display:flex;align-items:center;justify-content:flex-end;gap:.7rem;
+  height:2.1rem;padding-right:.5rem;font-family:'JetBrains Mono',monospace;
+  font-size:.625rem;color:var(--ink-3);transition:color .3s}
+.rail a::after{content:'';width:14px;height:1px;background:var(--line-2);
+  transition:width .35s var(--e),background .3s}
+.rail a b{opacity:0;transform:translateX(6px);transition:opacity .3s,transform .35s var(--e);
+  white-space:nowrap;font-weight:400;text-transform:uppercase;letter-spacing:.08em}
+.rail a:hover b,.rail a.active b{opacity:1;transform:none}
+.rail a:hover{color:var(--ink)}
+.rail a:hover::after{width:26px;background:var(--ink)}
+.rail a.active{color:var(--accent)}
+.rail a.active::after{width:34px;background:var(--accent)}
+
+/* ═══ Появление блоков ════════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(22px);
+  transition:opacity .75s var(--e),transform .75s var(--e)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ═══ Кнопка наверх ═══════════════════════════════════════════════════ */
+.up{position:fixed;inset:auto 1.2rem 1.2rem auto;z-index:var(--z-rail);
+  display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;
+  border:1px solid var(--ink);background:var(--paper);
+  font-family:'JetBrains Mono',monospace;font-size:.6875rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .4s,visibility .4s,transform .4s var(--e),background .25s,color .25s}
+.up.show{opacity:1;visibility:visible;transform:none}
+.up:hover{background:var(--ink);color:var(--paper)}
+@media(min-width:1100px){.up{inset:auto 3.5rem 1.6rem auto}}
+
+.copy{margin-top:1.6rem;font-family:'JetBrains Mono',monospace;font-size:.6875rem;
+  color:var(--ink-3);line-height:1.7}
+</style></head>
+<body>
+<div class="frame" aria-hidden="true"></div>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top">
+      <img class="bar-logo-d" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDIuMDAgMzIxLjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ItCa0L7QvNC10L3QtNCw0L3RgiDQotC10YXQvdC+0LvQvtC00LbQuCDigJQg0LfQvdCw0LoiPgogIDx0aXRsZT7QmtC+0LzQtdC90LTQsNC90YIg0KLQtdGF0L3QvtC70L7QtNC20Lgg4oCUINC30L3QsNC6PC90aXRsZT4KICA8cGF0aCBmaWxsPSIjMEYzQTkzIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi4yNSwxNTEuMjUgTDAuNzUsMTg1LjI1IEwxLjAwLDMxOS41MCBMMTQ0LjUwLDMxOS43NSBMMTQ0Ljc1LDI2MC4wMCBaIE0yMTAuMDAsMTQ0LjI1IEwxNDYuMjUsMjA3LjAwIEwyMTEuMDAsMjcyLjUwIEwyMTEuMjUsMzE5LjUwIEwzMDAuMjUsMzE5LjUwIEwzMDAuNTAsMjM5LjI1IFogTTI5OS43NSwwLjAwIEwxODMuMjUsMC4wMCBMNjEuMjUsMTI1LjUwIEwxMjAuNzUsMTg0LjUwIFogTTg0Ljc1LDAuMDAgTDEuMDAsMC43NSBMMS4yNSwxNDIuNTAgTDg1LjUwLDU4Ljc1IFoiLz4KPC9zdmc+Cg==" alt="" width="30" height="30">
+      <img class="bar-logo-l" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDIuMDAgMzIxLjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ItCa0L7QvNC10L3QtNCw0L3RgiDQotC10YXQvdC+0LvQvtC00LbQuCDigJQg0LfQvdCw0LoiPgogIDx0aXRsZT7QmtC+0LzQtdC90LTQsNC90YIg0KLQtdGF0L3QvtC70L7QtNC20Lgg4oCUINC30L3QsNC6PC90aXRsZT4KICA8cGF0aCBmaWxsPSIjRjJGMEVBIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi4yNSwxNTEuMjUgTDAuNzUsMTg1LjI1IEwxLjAwLDMxOS41MCBMMTQ0LjUwLDMxOS43NSBMMTQ0Ljc1LDI2MC4wMCBaIE0yMTAuMDAsMTQ0LjI1IEwxNDYuMjUsMjA3LjAwIEwyMTEuMDAsMjcyLjUwIEwyMTEuMjUsMzE5LjUwIEwzMDAuMjUsMzE5LjUwIEwzMDAuNTAsMjM5LjI1IFogTTI5OS43NSwwLjAwIEwxODMuMjUsMC4wMCBMNjEuMjUsMTI1LjUwIEwxMjAuNzUsMTg0LjUwIFogTTg0Ljc1LDAuMDAgTDEuMDAsMC43NSBMMS4yNSwxNDIuNTAgTDg1LjUwLDU4Ljc1IFoiLz4KPC9zdmc+Cg==" alt="" width="30" height="30">
+      <span class="brand-t"><b>Комендант Технолоджи</b>
+        <span>Москва · с 2019</span></span></a>
+    <div class="bar-mid"><span class="dotlive"></span>Принимаем объекты в работу</div>
+    <div class="bar-r">
+      <a class="bar-tel" href="tel:+74959227273">+7 495 922 72 73</a>
+      <button class="burger" id="burger" aria-expanded="false"
+        aria-controls="menu" aria-label="Открыть меню">Разделы<i></i></button>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Разделы сайта">
+  <div class="menu-top">
+    <span class="menu-brand"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDIuMDAgMzIxLjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9ItCa0L7QvNC10L3QtNCw0L3RgiDQotC10YXQvdC+0LvQvtC00LbQuCDigJQg0LfQvdCw0LoiPgogIDx0aXRsZT7QmtC+0LzQtdC90LTQsNC90YIg0KLQtdGF0L3QvtC70L7QtNC20Lgg4oCUINC30L3QsNC6PC90aXRsZT4KICA8cGF0aCBmaWxsPSIjRjJGMEVBIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNi4yNSwxNTEuMjUgTDAuNzUsMTg1LjI1IEwxLjAwLDMxOS41MCBMMTQ0LjUwLDMxOS43NSBMMTQ0Ljc1LDI2MC4wMCBaIE0yMTAuMDAsMTQ0LjI1IEwxNDYuMjUsMjA3LjAwIEwyMTEuMDAsMjcyLjUwIEwyMTEuMjUsMzE5LjUwIEwzMDAuMjUsMzE5LjUwIEwzMDAuNTAsMjM5LjI1IFogTTI5OS43NSwwLjAwIEwxODMuMjUsMC4wMCBMNjEuMjUsMTI1LjUwIEwxMjAuNzUsMTg0LjUwIFogTTg0Ljc1LDAuMDAgTDEuMDAsMC43NSBMMS4yNSwxNDIuNTAgTDg1LjUwLDU4Ljc1IFoiLz4KPC9zdmc+Cg==" alt="" width="26" height="26">
+      Разделы сайта · 09 листов</span>
+    <button class="menu-x" id="menu-x">Закрыть</button></div>
+  <div class="menu-list"><a class="mrow" href="#about"><span>01</span><b>О компании</b><em>Показатели, состав работ, команда</em></a><a class="mrow" href="#security"><span>02</span><b>Безопасность</b><em>Видеонаблюдение, СКУД, сигнализация, СОУЭ</em></a><a class="mrow" href="#engineering"><span>03</span><b>Инженерия</b><em>Монтаж, пусконаладка, сети и слаботочка</em></a><a class="mrow" href="#process"><span>04</span><b>Процесс</b><em>Пять этапов от задачи до сдачи</em></a><a class="mrow" href="#products"><span>05</span><b>Оборудование</b><em>SOVA VISION, ПОДСОЛНУХ, ЭЛЕКТРОВОЗ</em></a><a class="mrow" href="#objects"><span>06</span><b>Работы</b><em>Двенадцать видов работ в колесе</em></a><a class="mrow" href="#geography"><span>07</span><b>География</b><em>Десять городов России</em></a><a class="mrow" href="#result"><span>08</span><b>Результат</b><em>Сдача работ, документы, гарантия</em></a><a class="mrow" href="#contact"><span>09</span><b>Контакты</b><em>Телефон, почта, адреса, реквизиты</em></a></div>
+  <div class="menu-foot">
+    <a href="tel:+74959227273">+7 495 922 72 73</a>
+    <a href="mailto:info@k-tehnology.ru">info@k-tehnology.ru</a>
+    <span>115114, Москва, ул. Летниковская, д. 10, стр. 1</span>
+  </div>
+</nav>
+<nav class="rail" id="rail" aria-label="Переход по листам"><a href="#about" data-sec="about"><b>О компании</b>01</a><a href="#security" data-sec="security"><b>Безопасность</b>02</a><a href="#engineering" data-sec="engineering"><b>Инженерия</b>03</a><a href="#process" data-sec="process"><b>Процесс</b>04</a><a href="#products" data-sec="products"><b>Оборудование</b>05</a><a href="#objects" data-sec="objects"><b>Работы</b>06</a><a href="#geography" data-sec="geography"><b>География</b>07</a><a href="#result" data-sec="result"><b>Результат</b>08</a><a href="#contact" data-sec="contact"><b>Контакты</b>09</a></nav>
+<button class="up" id="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6 -6l6 6"/></svg>Наверх</button>
+<main>
+<section class="sheet title" id="top">
+  <div class="title-bg">
+    <img src="poster.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+    <video id="hero-v" muted loop playsinline preload="none"
+      poster="poster.jpg" aria-hidden="true"></video>
+  </div>
+  <div class="title-veil"></div>
+  <div class="in">
+    <p class="title-eyebrow">ООО «Комендант Технолоджи» · Внутренние инженерные системы</p>
+    <h1 class="h1">
+      <span class="draw"><span>Инженерия,</span></span>
+      <span class="draw"><span class="acc">сданная под ключ</span></span>
+    </h1>
+    <div class="dim"><span>А</span><span class="dim-l"></span>
+      <span>полный цикл работ по объекту</span><span class="dim-l"></span><span>Б</span></div>
+    <div class="title-grid">
+      <div><div class="rv" style="transition-delay:700ms"><p class="lead">Проектируем, поставляем и монтируем инженерные системы объекта. Сдаём с полным комплектом документации.</p></div>
+        <div class="rv" style="transition-delay:800ms"><div class="title-cta"><a class="btn btn-acc" href="#contact">Обсудить объект<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0M13 18l6 -6M13 6l6 6"/></svg></a><a class="btn" href="#engineering">Что мы делаем</a></div></div>
+      </div>
+    </div>
+  </div>
+  <span class="scroller" aria-hidden="true"><i></i>Листайте</span>
+</section>
+<div class="tape" aria-hidden="true"><div class="tape-in"><span class="tape-i">Видеонаблюдение</span><span class="tape-i">СКУД</span><span class="tape-i">Охранно-пожарная сигнализация</span><span class="tape-i">СОУЭ</span><span class="tape-i">СКС и Wi-Fi</span><span class="tape-i">Электроснабжение</span><span class="tape-i">Автоматика</span><span class="tape-i">Отопление</span><span class="tape-i">Вентиляция</span><span class="tape-i">Водоснабжение</span><span class="tape-i">Пусконаладка</span><span class="tape-i">Исполнительная документация</span><span class="tape-i">Видеонаблюдение</span><span class="tape-i">СКУД</span><span class="tape-i">Охранно-пожарная сигнализация</span><span class="tape-i">СОУЭ</span><span class="tape-i">СКС и Wi-Fi</span><span class="tape-i">Электроснабжение</span><span class="tape-i">Автоматика</span><span class="tape-i">Отопление</span><span class="tape-i">Вентиляция</span><span class="tape-i">Водоснабжение</span><span class="tape-i">Пусконаладка</span><span class="tape-i">Исполнительная документация</span></div></div>
+<section class="sheet" id="about">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 01</span><h2 class="sheet-t">О компании</h2><span class="sheet-note">Показатели и состав работ</span></div>
+    <div class="rv"><div class="expl"><div class="expl-c"><i>поз. 1</i><b class="count" data-to="100" data-suf="+">0+</b><span>объектов введено в эксплуатацию</span></div><div class="expl-c"><i>поз. 2</i><b class="count" data-to="5" data-suf="+">0+</b><span>лет практики</span></div><div class="expl-c"><i>поз. 3</i><b class="count" data-to="10" data-suf="">0</b><span>городов России</span></div><div class="expl-c"><i>поз. 4</i><b class="count" data-to="30" data-suf="+">0+</b><span>инженеров в штате</span></div></div></div>
+    <div class="duo" style="margin-top:2.5rem">
+      <div class="rv" style="transition-delay:100ms"><div class="duo-txt"><h3 class="h3" style="margin-bottom:1rem">Команда для задач вашего объекта</h3><p class="lead" style="margin-bottom:1rem">Закрываем весь цикл: от анализа требований площадки до передачи системы и гарантийного сопровождения.</p><p style="margin-bottom:1.3rem">Мы подрядчик для проектов любой сложности. Заказчику не нужно собирать подрядчиков по частям и сводить их между собой.</p><div class="chips"><span class="chip">Слаботочные системы</span><span class="chip">Инженерные системы</span><span class="chip">Монтаж под ключ</span><span class="chip">Сервис и гарантия</span></div></div></div>
+      <div class="rv" style="transition-delay:200ms"><figure class="figure"><img src="team.jpg" alt="Инженеры компании в форме с логотипом обсуждают чертёж у смонтированного оборудования" loading="lazy" width="1500" height="1000"><figcaption><b>01</b>Инженерная группа на объекте</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="security">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 02</span><h2 class="sheet-t">Техническая безопасность</h2><span class="sheet-note">Слои читаются снизу вверх</span></div>
+    <div class="duo" style="margin-bottom:2.2rem;align-items:start">
+      <div><div class="rv"><p class="lead">Безопасность связывает все инженерные системы объекта. Поэтому мы проектируем её вместе с электрикой и сетями, а не поверх готового ремонта.</p></div>
+        <div class="rv" style="transition-delay:100ms"><div class="cut" style="margin-top:1.6rem"><div class="cut-l"><em>01</em><b>Площадка и подготовка</b><span>Требования объекта, ограничения, допуски.</span></div><div class="cut-l"><em>02</em><b>Электроснабжение</b><span>Питание, автоматика, щитовое оборудование.</span></div><div class="cut-l"><em>03</em><b>Сети и слаботочка</b><span>СКС, Wi-Fi, интеграция систем между собой.</span></div><div class="cut-l"><em>04</em><b>Инженерные системы</b><span>Отопление, вентиляция, водоснабжение.</span></div><div class="cut-l top"><em>05</em><b>Техническая безопасность</b><span>Направление, с которого начиналась компания.</span></div></div></div>
+      </div>
+      <div class="rv" style="transition-delay:150ms"><figure class="figure"><img src="security.jpg" alt="Монтаж купольной камеры и панели контроля доступа в холле бизнес-центра" loading="lazy" width="1300" height="976"><figcaption><b>02</b>Видеонаблюдение и контроль доступа</figcaption></figure></div>
+    </div>
+    <div class="rv" style="transition-delay:200ms"><div class="expl"><div class="expl-c"><i>01</i><b style="font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.2">Видеонаблюдение</b><span>Контроль периметра и внутренних зон, проектирование и пусконаладка.</span></div><div class="expl-c"><i>02</i><b style="font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.2">СКУД</b><span>Турникеты, замки, считыватели и интеграция с системой учёта.</span></div><div class="expl-c"><i>03</i><b style="font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.2">Охранно-пожарная сигнализация</b><span>Обнаружение угрозы, оповещение и передача сигнала на пульт.</span></div><div class="expl-c"><i>04</i><b style="font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.2">СОУЭ и радиофикация</b><span>Оповещение и управление эвакуацией людей при чрезвычайной ситуации.</span></div></div></div>
+    <div class="duo" style="margin-top:2.2rem">
+      <div class="rv" style="transition-delay:240ms"><figure class="figure"><img src="access.jpg" alt="Настройка турникетов и считывателей на входной группе" loading="lazy" width="1100" height="825"><figcaption><b>03</b>Турникеты и считыватели</figcaption></figure></div>
+      <div class="rv" style="transition-delay:280ms"><figure class="figure"><img src="fire.jpg" alt="Монтаж пожарного извещателя и пульт охранно-пожарной сигнализации" loading="lazy" width="1100" height="825"><figcaption><b>04</b>Сигнализация и оповещение</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="engineering">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 03</span><h2 class="sheet-t">Инженерные системы</h2><span class="sheet-note">Нажмите позицию, чтобы раскрыть</span></div>
+    <div class="duo" style="align-items:start">
+      <div><div class="rv"><p class="lead" style="margin-bottom:1.6rem">Комплексные работы с учётом требований заказчика и проектной документации.</p></div>
+        <div class="rv" style="transition-delay:100ms"><figure class="figure"><img src="trays.jpg" alt="Монтажники прокладывают кабель в лотках над потолком" loading="lazy" width="1500" height="1000"><figcaption><b>05</b>Кабельные трассы и лотки</figcaption></figure></div>
+      </div>
+      <div class="rv" style="transition-delay:150ms"><div class="spec"><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>01</em><b>Монтаж и пусконаладка</b><i></i></button><div class="spec-body"><div><div class="spec-in"><div class="chips"><span class="chip">Кабельные трассы и сети</span><span class="chip">Монтаж оборудования</span><span class="chip">Подключение и настройка</span><span class="chip">Пусконаладочные работы</span><span class="chip">Исполнительная документация</span></div></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>02</em><b>Сети и слаботочка</b><i></i></button><div class="spec-body"><div><div class="spec-in"><div class="chips"><span class="chip">СКС и Wi-Fi сеть</span><span class="chip">Электроснабжение и автоматика</span><span class="chip">Отопление и вентиляция</span><span class="chip">Водоснабжение</span><span class="chip">Интеграция систем между собой</span></div></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>03</em><b>Подбор решения под задачу</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Работаем от требований объекта и бюджета, не навязывая лишнее оборудование.</p></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>04</em><b>Согласование и сдача</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Сопровождаем проект до ввода системы в эксплуатацию.</p></div></div></div></div></div></div>
+    </div>
+    <div class="duo" style="margin-top:2.2rem">
+      <div class="rv" style="transition-delay:200ms"><figure class="figure"><img src="panel.jpg" alt="Монтаж и наладка щитового оборудования автоматики" loading="lazy" width="1500" height="1000"><figcaption><b>06</b>Электроснабжение и автоматика</figcaption></figure></div>
+      <div class="rv" style="transition-delay:240ms"><figure class="figure"><img src="hvac.jpg" alt="Инженер у приточной установки в венткамере" loading="lazy" width="1500" height="1000"><figcaption><b>07</b>Отопление и вентиляция</figcaption></figure></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="process">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 04</span><h2 class="sheet-t">Как ведём проект</h2><span class="sheet-note">Руководитель проекта на каждом объекте</span></div>
+    <div class="rv"><p class="lead" style="margin-bottom:1.8rem">Заказчик контролирует сроки, бюджет и качество на каждом шаге.</p></div>
+    <div class="rv" style="transition-delay:100ms"><div class="flow-wrap"><div class="flow"><div class="flow-s"><span class="flow-n">ЭТАП 01</span><h3>Анализ задачи</h3><p>Уточняем состав систем, требования объекта и ограничения площадки.</p><div class="flow-bar"></div></div><div class="flow-s"><span class="flow-n">ЭТАП 02</span><h3>Проект и смета</h3><p>Формируем техническое решение, спецификацию и понятную стоимость.</p><div class="flow-bar"></div></div><div class="flow-s"><span class="flow-n">ЭТАП 03</span><h3>Поставка</h3><p>Организуем оборудование, материалы, график и допуск на объект.</p><div class="flow-bar"></div></div><div class="flow-s"><span class="flow-n">ЭТАП 04</span><h3>Монтаж</h3><p>Выполняем работы, подключение, настройку и проверку.</p><div class="flow-bar"></div></div><div class="flow-s"><span class="flow-n">ЭТАП 05</span><h3>Сдача</h3><p>Передаём исполнительную документацию, гарантию и сервисную поддержку.</p><div class="flow-bar"></div></div></div></div></div>
+    <div class="duo" style="margin-top:2.2rem;align-items:start">
+      <div class="rv" style="transition-delay:200ms"><p style="max-width:62ch">Один ответственный от первого выезда до подписания актов. Заказчику не нужно собирать информацию по частям.</p></div>
+      <div style="display:grid;gap:1rem">
+        <div class="rv" style="transition-delay:250ms"><figure class="figure"><img src="design.jpg" alt="Инженеры за проектной документацией и трёхмерной моделью систем" loading="lazy" width="1500" height="1000"><figcaption><b>08</b>Проект, спецификация, смета</figcaption></figure></div>
+        <div class="rv" style="transition-delay:300ms"><figure class="figure"><img src="delivery.jpg" alt="Бригада выгружает оборудование из служебного автомобиля у объекта" loading="lazy" width="1500" height="1000"><figcaption><b>09</b>Поставка и выезд на объект</figcaption></figure></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="products">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 05</span><h2 class="sheet-t">Оборудование и продукты</h2><span class="sheet-note">Своё производство и партнёрские линейки</span></div>
+    <div class="rv"><div class="pick" role="tablist"><button role="tab" aria-selected="true" data-p="p-sova">SOVA VISION</button><button role="tab" aria-selected="false" data-p="p-ps">ПОДСОЛНУХ</button><button role="tab" aria-selected="false" data-p="p-ev">ЭЛЕКТРОВОЗ</button></div></div>
+    <div class="pane on" id="p-sova" role="tabpanel">
+  <p class="lead" style="margin-bottom:1.4rem">Линейка видеонаблюдения собственного производства для комплектации объектов.</p>
+  <div class="expl" style="margin-bottom:2rem"><div class="expl-c"><i>01</i><b style="font-size:1.0625rem;line-height:1.25">Производство в РФ</b><span>Производственная база в России</span></div><div class="expl-c"><i>02</i><b style="font-size:1.0625rem;line-height:1.25">Прямая поставка</b><span>Без лишних посредников</span></div><div class="expl-c"><i>03</i><b style="font-size:1.0625rem;line-height:1.25">Русский интерфейс</b><span>Быстрая настройка на объекте</span></div><div class="expl-c"><i>04</i><b style="font-size:1.0625rem;line-height:1.25">Документация</b><span>Паспорт и руководство на русском</span></div></div>
+  <div class="drum">
+  <div class="drum-stage grab" id="drum-stage"><button class="drum-card" data-i="0" aria-label="Показать SV-3130MD"><span class="drum-shot"><img src="cam1.jpg" alt="Камера SV-3130MD, купольная" loading="lazy" width="760" height="760"></span><span class="drum-meta"><u>SOVA VISION</u><b>SV-3130MD</b><span>Купольная</span></span></button><button class="drum-card" data-i="1" aria-label="Показать SV-3130MB"><span class="drum-shot"><img src="cam2.jpg" alt="Камера SV-3130MB, цилиндрическая" loading="lazy" width="760" height="760"></span><span class="drum-meta"><u>SOVA VISION</u><b>SV-3130MB</b><span>Цилиндрическая</span></span></button><button class="drum-card" data-i="2" aria-label="Показать SV-3130PD"><span class="drum-shot"><img src="cam3.jpg" alt="Камера SV-3130PD, купольная" loading="lazy" width="760" height="760"></span><span class="drum-meta"><u>SOVA VISION</u><b>SV-3130PD</b><span>Купольная</span></span></button></div>
+  <div class="drum-nav">
+    <button class="drum-arrow" id="drum-prev"
+      aria-label="Предыдущая камера"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0M5 12l6 6M5 12l6 -6"/></svg></button>
+    <span class="drum-count" id="drum-count">01 / 03</span>
+    <button class="drum-arrow" id="drum-next"
+      aria-label="Следующая камера"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0M13 18l6 -6M13 6l6 6"/></svg></button>
+  </div>
+  <div class="drum-detail" role="region" aria-live="polite"><div class="drum-d" data-i="0"><div class="dgrid"><div><h4>SV-3130MD</h4><p class="short">Купольная. Вандалостойкая, с трансфокатором</p><a class="btn btn-sm" href="https://sova-vision.ru/sv-3130md" target="_blank" rel="noopener">Характеристики<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6M11 13l9 -9M15 4h5v5"/></svg></a></div><dl class="card-dl"><div><dt>Матрица</dt><dd>5 Мп</dd></div><div><dt>Объектив</dt><dd>2,8-13,5 мм</dd></div><div><dt>Подсветка</dt><dd>25-30 м</dd></div><div><dt>Защита</dt><dd>IP67, IK10</dd></div></dl></div></div><div class="drum-d" data-i="1"><div class="dgrid"><div><h4>SV-3130MB</h4><p class="short">Цилиндрическая. Самая дальнобойная подсветка линейки</p><a class="btn btn-sm" href="https://sova-vision.ru/sv-3130mb" target="_blank" rel="noopener">Характеристики<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6M11 13l9 -9M15 4h5v5"/></svg></a></div><dl class="card-dl"><div><dt>Матрица</dt><dd>5 Мп</dd></div><div><dt>Объектив</dt><dd>2,8-13,5 мм</dd></div><div><dt>Подсветка</dt><dd>50-60 м</dd></div><div><dt>Защита</dt><dd>IP67</dd></div></dl></div></div><div class="drum-d" data-i="2"><div class="dgrid"><div><h4>SV-3130PD</h4><p class="short">Купольная. Со встроенным микрофоном</p><a class="btn btn-sm" href="https://sova-vision.ru/sv-3130pd" target="_blank" rel="noopener">Характеристики<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6M11 13l9 -9M15 4h5v5"/></svg></a></div><dl class="card-dl"><div><dt>Матрица</dt><dd>5 Мп</dd></div><div><dt>Объектив</dt><dd>2,8 мм</dd></div><div><dt>Подсветка</dt><dd>15-20 м</dd></div><div><dt>Защита</dt><dd>IP54</dd></div></dl></div></div></div>
+</div>
+  <p class="copy">Полные характеристики и условия гарантии на сайте производителя</p>
+</div><div class="pane" id="p-ps" role="tabpanel">
+  <p class="lead" style="margin-bottom:1.4rem">ПОДСОЛНУХ СБ-6000.
+    Солнечная электростанция для объектов, удалённых от электрических сетей.</p>
+  <div class="duo" style="margin-bottom:2rem">
+    <figure class="figure"><img src="solar.jpg" alt="Солнечные панели на фоне
+      строящегося здания с башенными кранами" loading="lazy"
+      width="1800" height="1012">
+      <figcaption><b>10</b>Собственная генерация на стройплощадке</figcaption></figure>
+    <div class="duo-txt"><p style="margin-bottom:1rem">Прокладка кабельной линии бывает дороже и дольше собственной генерации. Точка подключения за километры, технические условия согласуются месяцами, а иногда присоединение просто невыгодно.</p>
+      <p>Станция преобразует солнечную энергию, накапливает её в аккумуляторах и выдаёт потребителям. Оборудование смонтировано в контейнере и поставляется готовым к подключению.</p></div>
+  </div>
+  <div class="expl"><div class="expl-c"><i>01</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">6 кВт</b><span>номинальная мощность</span></div><div class="expl-c"><i>02</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">8 × 650 Вт</b><span>солнечных панелей</span></div><div class="expl-c"><i>03</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">400 Ач</b><span>ёмкость АКБ</span></div><div class="expl-c"><i>04</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">24/7</b><span>электроснабжение</span></div></div>
+  <h4 style="margin:2rem 0 .8rem;font-family:'Oswald',sans-serif;font-weight:500;
+    text-transform:uppercase;letter-spacing:.03em">Состав станции</h4>
+  <div class="cities"><div class="city"><b>Солнечные панели</b><span>До 650 Вт каждая, 1150 × 2400 мм. В сборке 8 шт. на ферме.</span></div><div class="city"><b>Гибридный инвертор</b><span>От 6 кВт. Подмешивает энергию сети, поддерживает генератор.</span></div><div class="city"><b>Аккумуляторные батареи</b><span>4 шт. по 100 Ач. Обеспечивают работу в тёмное время.</span></div><div class="city"><b>Электрический щит</b><span>Автоматические и дифференциальные выключатели, защита линий.</span></div></div>
+  <div class="calc">
+    <div class="calc-a"><h4>Что питаем на объекте</h4><label class="load"><input type="checkbox" data-kw="2.0" checked><span><b>Пост охраны</b><em>освещение, электрообогрев, оргтехника</em></span><span class="kw">2.0 кВт</span></label><label class="load"><input type="checkbox" data-kw="0.4" checked><span><b>Видеонаблюдение</b><em>камеры и регистратор</em></span><span class="kw">0.4 кВт</span></label><label class="load"><input type="checkbox" data-kw="0.3" checked><span><b>СКУД</b><em>турникет, замки, контроллер</em></span><span class="kw">0.3 кВт</span></label><label class="load"><input type="checkbox" data-kw="0.15"><span><b>Охранно-пожарная сигнализация</b><em>приборы и оповещение</em></span><span class="kw">0.15 кВт</span></label><label class="load"><input type="checkbox" data-kw="0.9"><span><b>Освещение периметра</b><em>светодиодные светильники</em></span><span class="kw">0.9 кВт</span></label><label class="load"><input type="checkbox" data-kw="3.0"><span><b>Бытовой городок</b><em>вагончик-бытовка с обогревом</em></span><span class="kw">3.0 кВт</span></label>
+      <div class="hrs"><label for="hrs">Часов работы в сутки
+        <output id="hout">12 ч</output></label>
+        <input type="range" id="hrs" min="4" max="24" step="1" value="12"
+          aria-label="Часов работы в сутки"></div>
+    </div>
+    <div class="calc-b"><h4>Предварительный расчёт</h4>
+      <dl><div class="res"><dt>Потребителей</dt><dd id="r-n">0</dd></div>
+        <div class="res"><dt>Пиковая нагрузка</dt><dd id="r-peak">0 кВт</dd></div>
+        <div class="res"><dt>Потребление в сутки</dt><dd id="r-day">0 кВт·ч</dd></div></dl>
+      <div class="verdict" id="verdict" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="copy">Пришлите перечень потребителей и режим их работы. Подберём мощность панелей, ёмкость АКБ и подготовим коммерческое предложение.</p>
+</div><div class="pane" id="p-ev" role="tabpanel">
+  <p class="lead" style="margin-bottom:1.4rem">ЭЛЕКТРОВОЗ.
+    Мобильные зарядные станции для электромобилей.</p>
+  <div class="duo" style="margin-bottom:2rem">
+    <div class="duo-txt"><p style="margin-bottom:1rem">Обычная зарядная станция это стройка: кабель, увеличение мощности подстанции, согласования и месяцы ожидания. Парковочное место потом занято навсегда, даже когда зарядка простаивает.</p>
+      <p style="margin-bottom:1.2rem">ЭЛЕКТРОВОЗ работает как автономный аккумулятор на колёсах. Он сам приезжает к автомобилю, разворачивается за часы и не требует реконструкции сети.</p>
+      <div class="chips"><span class="chip">CE</span><span class="chip">UKCA</span><span class="chip">UL</span><span class="chip">TÜV</span><span class="chip">SGS</span></div></div>
+    <div class="cities"><div class="city"><b>Ёмкость</b><span>209 кВт·ч</span></div><div class="city"><b>Мощность</b><span>до 150 кВт DC</span></div><div class="city"><b>Разъём</b><span>CCS2</span></div><div class="city"><b>Защита</b><span>IP55, батарея IP67</span></div><div class="city"><b>Протоколы</b><span>OCPP 1.6 и 2.0</span></div><div class="city"><b>Доп. функция</b><span>аварийный источник</span></div></div>
+  </div>
+  <div class="expl" style="margin-bottom:1px"><div class="expl-c"><i>01</i><b style="font-size:1.0625rem;line-height:1.25">Без реконструкции сети</b><span>Развёртывание за часы, а не за месяцы.</span></div><div class="expl-c"><i>02</i><b style="font-size:1.0625rem;line-height:1.25">209 кВт·ч на заряде</b><span>Хватает на 5-6 полных зарядок подряд.</span></div><div class="expl-c"><i>03</i><b style="font-size:1.0625rem;line-height:1.25">Автономная работа</b><span>Заряжается ночью по низкому тарифу, отдаёт днём.</span></div><div class="expl-c"><i>04</i><b style="font-size:1.0625rem;line-height:1.25">Контроль и защита</b><span>Мониторинг батареи, приложение и веб-платформа.</span></div></div>
+  <div class="expl"><div class="expl-c"><i>01</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">3000+</b><span>станций в эксплуатации</span></div><div class="expl-c"><i>02</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">50+</b><span>городов Китая</span></div><div class="expl-c"><i>03</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">14</b><span>стран мира</span></div><div class="expl-c"><i>04</i><b style="font-size:clamp(1.5rem,3.4vw,2.2rem)">16 млн</b><span>кВт·ч выдано за 2024 год</span></div></div>
+  <p class="copy">Точки поставок и объектов. Потяните, чтобы повернуть.</p>
+  <div class="globe-box" id="globe-box"><canvas id="globe"></canvas></div>
+</div>
+  </div>
+</section>
+<section class="sheet" id="objects">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 06</span><h2 class="sheet-t">Работы на объектах</h2><span class="sheet-note">Колесо проворачивается при прокрутке</span></div>
+    <div class="rv wh">
+      <div class="wh-stage">
+        <div class="wh-hub">
+          <b>Более 100 объектов<br>введено в эксплуатацию</b>
+          <span>Полный состав работ по внутренним инженерным
+            и слаботочным системам.</span>
+          <i class="hover">Наведите — приблизит · нажмите — состав работ</i>
+          <i class="touch">Коснитесь карточки</i>
+        </div>
+        <div class="wh-ring" id="whRing"><div class="wh-slot" style="--a:0.0deg" data-i="0" role="button" tabindex="0" aria-expanded="false" aria-label="Кроссировка и коммутация. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 1</span><img src="obj-01.jpg" alt="Кроссировка и коммутация на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Кроссировка и коммутация</span></div><div class="wh-face wh-back"><span class="wh-kind">Сети</span><span class="wh-name">Кроссировка и коммутация</span><ul><li>Разделка и укладка кабеля</li><li>Маркировка портов</li></ul></div></div></div><div class="wh-slot" style="--a:30.0deg" data-i="1" role="button" tabindex="0" aria-expanded="false" aria-label="Серверная стойка. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 2</span><img src="obj-02.jpg" alt="Серверная стойка на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Серверная стойка</span></div><div class="wh-face wh-back"><span class="wh-kind">Монтаж</span><span class="wh-name">Серверная стойка</span><ul><li>Установка стойки и патч-панелей</li><li>Организация укладки</li></ul></div></div></div><div class="wh-slot" style="--a:60.0deg" data-i="2" role="button" tabindex="0" aria-expanded="false" aria-label="Телекоммуникационный шкаф. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 3</span><img src="obj-03.jpg" alt="Телекоммуникационный шкаф на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Телекоммуникационный шкаф</span></div><div class="wh-face wh-back"><span class="wh-kind">Слаботочка</span><span class="wh-name">Телекоммуникационный шкаф</span><ul><li>Монтаж шкафа и питания</li><li>Ввод кабельных линий</li></ul></div></div></div><div class="wh-slot" style="--a:90.0deg" data-i="3" role="button" tabindex="0" aria-expanded="false" aria-label="Пост мониторинга. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 4</span><img src="obj-04.jpg" alt="Пост мониторинга на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Пост мониторинга</span></div><div class="wh-face wh-back"><span class="wh-kind">Видеонаблюдение</span><span class="wh-name">Пост мониторинга</span><ul><li>Рабочее место оператора</li><li>Вывод каналов на экран</li></ul></div></div></div><div class="wh-slot" style="--a:120.0deg" data-i="4" role="button" tabindex="0" aria-expanded="false" aria-label="Кабельные трассы. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 5</span><img src="obj-05.jpg" alt="Кабельные трассы на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Кабельные трассы</span></div><div class="wh-face wh-back"><span class="wh-kind">Инженерия</span><span class="wh-name">Кабельные трассы</span><ul><li>Лотки и короба над потолком</li><li>Увязка с вентиляцией</li></ul></div></div></div><div class="wh-slot" style="--a:150.0deg" data-i="5" role="button" tabindex="0" aria-expanded="false" aria-label="Камера на фасаде. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 6</span><img src="obj-06.jpg" alt="Камера на фасаде на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Камера на фасаде</span></div><div class="wh-face wh-back"><span class="wh-kind">Видеонаблюдение</span><span class="wh-name">Камера на фасаде</span><ul><li>Обзор прилегающей территории</li><li>Крепление на фасаде</li></ul></div></div></div><div class="wh-slot" style="--a:180.0deg" data-i="6" role="button" tabindex="0" aria-expanded="false" aria-label="Контроль доступа. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 7</span><img src="obj-07.jpg" alt="Контроль доступа на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Контроль доступа</span></div><div class="wh-face wh-back"><span class="wh-kind">СКУД</span><span class="wh-name">Контроль доступа</span><ul><li>Считыватели на въезде</li><li>Интеграция с системой учёта</li></ul></div></div></div><div class="wh-slot" style="--a:210.0deg" data-i="7" role="button" tabindex="0" aria-expanded="false" aria-label="Обследование кровель. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 8</span><img src="obj-08.jpg" alt="Обследование кровель на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Обследование кровель</span></div><div class="wh-face wh-back"><span class="wh-kind">Обследование</span><span class="wh-name">Обследование кровель</span><ul><li>Съёмка с воздуха</li><li>Схема размещения оборудования</li></ul></div></div></div><div class="wh-slot" style="--a:240.0deg" data-i="8" role="button" tabindex="0" aria-expanded="false" aria-label="Монтаж на высоте. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 9</span><img src="obj-09.jpg" alt="Монтаж на высоте на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Монтаж на высоте</span></div><div class="wh-face wh-back"><span class="wh-kind">Монтаж</span><span class="wh-name">Монтаж на высоте</span><ul><li>Работы с подъёмником</li><li>Крепление на конструкции</li></ul></div></div></div><div class="wh-slot" style="--a:270.0deg" data-i="9" role="button" tabindex="0" aria-expanded="false" aria-label="Камеры в потолке. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 10</span><img src="obj-10.jpg" alt="Камеры в потолке на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Камеры в потолке</span></div><div class="wh-face wh-back"><span class="wh-kind">Видеонаблюдение</span><span class="wh-name">Камеры в потолке</span><ul><li>Монтаж в подвесном потолке</li><li>Скрытая прокладка линий</li></ul></div></div></div><div class="wh-slot" style="--a:300.0deg" data-i="10" role="button" tabindex="0" aria-expanded="false" aria-label="Складской комплекс. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 11</span><img src="obj-11.jpg" alt="Складской комплекс на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Складской комплекс</span></div><div class="wh-face wh-back"><span class="wh-kind">Безопасность</span><span class="wh-name">Складской комплекс</span><ul><li>Камеры и оповещение</li><li>Монтаж на стеллажных конструкциях</li></ul></div></div></div><div class="wh-slot" style="--a:330.0deg" data-i="11" role="button" tabindex="0" aria-expanded="false" aria-label="Видеостена оператора. Показать состав работ"><div class="wh-card"><div class="wh-face wh-front"><span class="wh-pos">поз. 12</span><img src="obj-12.jpg" alt="Видеостена оператора на объекте" loading="lazy" width="800" height="800"><span class="wh-cap">Видеостена оператора</span></div><div class="wh-face wh-back"><span class="wh-kind">Видеонаблюдение</span><span class="wh-name">Видеостена оператора</span><ul><li>Вывод каналов на видеостену</li><li>Настройка раскладок</li></ul></div></div></div></div>
+      </div>
+      <div class="wh-swipe">‹ Листайте ленту ›</div>
+      <div class="wh-bar">
+        <span class="now" id="whNow">поз. 1 — Кроссировка и коммутация</span>
+        <span style="margin-left:auto">Объекты обезличены по условиям договоров</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="geography">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 07</span><h2 class="sheet-t">География объектов</h2><span class="sheet-note">Готовы подключаться к проектам в других городах и регионах.</span></div>
+    <div class="geo">
+      <div class="rv"><figure class="figure"><img src="map.jpg" alt="Карта России с отмеченными городами, где компания вела объекты" loading="lazy" width="1500" height="1001"><figcaption><b>11</b>Объекты компании есть в нескольких регионах страны.</figcaption></figure></div>
+      <div class="rv" style="transition-delay:100ms"><div class="cities"><div class="city"><b>Москва</b><span>01</span></div><div class="city"><b>Санкт-Петербург</b><span>02</span></div><div class="city"><b>Белгород</b><span>03</span></div><div class="city"><b>Воронеж</b><span>04</span></div><div class="city"><b>Казань</b><span>05</span></div><div class="city"><b>Пермь</b><span>06</span></div><div class="city"><b>Уфа</b><span>07</span></div><div class="city"><b>Новосибирск</b><span>08</span></div><div class="city"><b>Барнаул</b><span>09</span></div><div class="city"><b>Владивосток</b><span>10</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="result">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 08</span><h2 class="sheet-t">Что получает заказчик</h2><span class="sheet-note">Снимаем техническую нагрузку и доводим систему до готового результата.</span></div>
+    <div class="rv"><div class="expl"><div class="expl-c"><i>01</i><b style="font-size:1.0625rem;line-height:1.25">Работоспособные системы</b><span>Смонтированные, подключённые и настроенные системы объекта.</span></div><div class="expl-c"><i>02</i><b style="font-size:1.0625rem;line-height:1.25">Понятная сдача работ</b><span>Акты, исполнительная документация, проверка и передача.</span></div><div class="expl-c"><i>03</i><b style="font-size:1.0625rem;line-height:1.25">Ответственность за качество</b><span>Контроль материалов, оборудования и соответствия проекту.</span></div><div class="expl-c"><i>04</i><b style="font-size:1.0625rem;line-height:1.25">Дальнейшее сопровождение</b><span>Гарантийная поддержка и сервисное обслуживание.</span></div></div></div>
+    <div class="duo" style="margin-top:2.5rem;align-items:start">
+      <div class="rv" style="transition-delay:100ms"><figure class="figure"><img src="server.jpg" alt="Инженеры выполняют коммутацию оборудования в серверной" loading="lazy" width="1500" height="1000"><figcaption><b>12</b>Система сдана и работает</figcaption></figure></div>
+      <div><div class="rv" style="transition-delay:150ms"><h3 class="h3" style="margin-bottom:1rem">Почему с нами удобно</h3></div>
+        <div class="rv" style="transition-delay:200ms"><div class="spec"><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>01</em><b>Сроки и обязательства</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Планируем работы, фиксируем контрольные точки и держим связь с заказчиком.</p></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>02</em><b>Техническая дисциплина</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Соблюдаем проектную документацию, нормы монтажа и требования площадки.</p></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>03</em><b>Комплектация объекта</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Берём на себя поставку материалов по согласованной спецификации.</p></div></div></div></div><div class="spec-row"><button class="spec-h" aria-expanded="false"><em>04</em><b>Документы и гарантия</b><i></i></button><div class="spec-body"><div><div class="spec-in"><p>Готовим исполнительную документацию и ведём гарантийный период.</p></div></div></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="contact">
+  <div class="in">
+    <div class="sheet-h"><span class="sheet-n">ЛИСТ 09</span><h2 class="sheet-t">Контакты</h2><span class="sheet-note">Реквизиты и связь</span></div>
+    <div class="rv"><h3 class="h2" style="max-width:18ch;margin-bottom:1rem">Готовы обсудить <span class="acc">ваш объект</span></h3></div>
+    <div class="rv" style="transition-delay:80ms"><p class="lead" style="margin-bottom:1.6rem">Расскажите о задаче, и мы подберём решение под требования площадки и бюджет.</p></div>
+    <div class="rv" style="transition-delay:120ms"><div class="title-cta"><a class="btn btn-acc" href="tel:+74959227273">+7 495 922 72 73<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0M13 18l6 -6M13 6l6 6"/></svg></a><a class="btn" href="mailto:info@k-tehnology.ru">info@k-tehnology.ru</a></div></div>
+    <div class="rv" style="transition-delay:180ms"><div class="stamp">
+  <div class="cell"><u>Организация</u><b class="big">ООО «Комендант Технолоджи»</b></div>
+  <div class="cell"><u>Телефон</u>
+    <b class="big"><a href="tel:+74959227273">+7 495 922 72 73</a></b></div>
+  <div class="cell"><u>Электронная почта</u>
+    <b class="big"><a href="mailto:info@k-tehnology.ru">info@k-tehnology.ru</a></b></div>
+  <div class="cell"><u>Фактический адрес</u><b>115114, Москва, ул. Летниковская, д. 10, стр. 1</b></div>
+  <div class="cell"><u>Юридический адрес</u><b>109004, Москва, пер. Николоямский, д. 2, помещ. 2/1</b></div>
+  <div class="cell"><u>Направление</u><b>Внутренние инженерные системы</b></div>
+</div></div>
+    <p class="copy">© <span id="y"></span> ООО «Комендант Технолоджи». Все права защищены.</p>
+  </div>
+</section>
+</main>
+<script>var GLOBE_POINTS=[{'location': [55.75, 37.62], 'size': 0.055}, {'location': [31.23, 121.47], 'size': 0.038}, {'location': [30.27, 120.15], 'size': 0.038}, {'location': [48.15, 17.11], 'size': 0.038}, {'location': [52.52, 13.4], 'size': 0.038}, {'location': [52.37, 4.9], 'size': 0.038}, {'location': [38.9, -77.04], 'size': 0.038}, {'location': [13.76, 100.5], 'size': 0.038}, {'location': [3.14, 101.69], 'size': 0.038}];
+
+(function(){
+var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/*
+   Подгрузка библиотеки глобуса.
+
+   Раньше весь скрипт объявлялся модулем — только ради того, чтобы можно
+   было вызвать import(). Но модули не выполняются, когда страницу
+   открывают файлом с диска: запрещает правило межисточникового доступа.
+   Проверять сайт двойным щелчком становилось невозможно, не работало
+   вообще ничего. Поэтому скрипт обычный, а модуль создаётся на ходу
+   и только для глобуса: на хостинге он сработает, с диска молча нет,
+   и на месте шара останется список стран, как и задумано.
+*/
+function loadCobe(){
+  return new Promise(function(ok,fail){
+    var tag=document.createElement('script');
+    tag.type='module';
+    tag.textContent="import m from 'https://cdn.jsdelivr.net/npm/cobe@0.6.4/+esm';"
+      +"window.__cobe={default:m};"
+      +"window.dispatchEvent(new Event('cobe-ready'));";
+    addEventListener('cobe-ready',function(){ok(window.__cobe)},{once:true});
+    tag.onerror=fail;
+    setTimeout(function(){if(!window.__cobe)fail(new Error('нет связи'))},8000);
+    document.head.appendChild(tag);
+  });
+}
+document.getElementById('y').textContent=new Date().getFullYear();
+
+/* Появление блоков. Наблюдатель пересечений вместо обработчика прокрутки:
+   главный поток остаётся свободным. */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},
+  {threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv,.flow-wrap').forEach(function(el){io.observe(el)});
+
+/*
+   Видео обложки.
+
+   Постер лежит под роликом и виден сразу, поэтому обложка не мигает
+   пустотой. Сам ролик подключается после полной загрузки страницы и
+   только когда это уместно: на узком экране, при экономии трафика,
+   на медленной сети и при просьбе уменьшить движение остаётся кадр.
+   За пределами экрана воспроизведение останавливается — иначе браузер
+   продолжает декодировать кадры на всю длину страницы.
+*/
+var hv=document.getElementById('hero-v');
+if(hv){
+  var conn=navigator.connection||{};
+  var slow=conn.saveData===true||/^([23]g|slow-2g)$/.test(conn.effectiveType||'');
+  /* Имя нарочно своё: переменная с общим именем однажды была перетёрта
+     другим блоком, и тяжёлый файл уезжал даже на телефон. */
+  var hiRes=innerWidth>=900;
+  if(!reduced&&innerWidth>=560&&!slow){
+    var start=function(){
+      var mp4=hiRes?'hero1080.mp4':'hero720.mp4';
+      hv.src=mp4;
+      hv.addEventListener('loadeddata',function(){hv.classList.add('on')});
+      hv.addEventListener('error',function(){
+        console.warn('Видео обложки недоступно, показан кадр')});
+      var p=hv.play(); if(p&&p.catch)p.catch(function(){});
+    };
+    if(document.readyState==='complete')start();
+    else addEventListener('load',start,{once:true});
+
+    /*
+       Присмотр за воспроизведением.
+
+       Ролик останавливался сам, и виновных может быть двое. Во-первых,
+       браузер экономит ресурсы и приостанавливает фоновое видео по
+       своему усмотрению. Во-вторых, зацикливание иногда не срабатывает,
+       и через пятнадцать секунд ролик просто заканчивается.
+
+       Поэтому держим признак «сейчас должно играть» и возвращаем
+       воспроизведение, когда его прервали не мы. Число попыток
+       ограничено: если браузер запрещает воспроизведение намеренно,
+       бесконечно долбиться в него незачем.
+    */
+    var wantPlay=false, tries=0;
+    function tryPlay(){
+      if(!hv.src||!wantPlay||document.hidden)return;
+      var q=hv.play(); if(q&&q.catch)q.catch(function(){});
+    }
+    hv.loop=true;
+    hv.addEventListener('ended',function(){
+      /* Страховка на случай, если зацикливание не отработало */
+      hv.currentTime=0; tryPlay();
+    });
+    hv.addEventListener('pause',function(){
+      if(wantPlay&&!document.hidden&&tries<10){tries++;setTimeout(tryPlay,150)}
+    });
+    hv.addEventListener('playing',function(){tries=0});
+
+    new IntersectionObserver(function(e){
+      wantPlay=e[0].isIntersecting;
+      if(wantPlay){tries=0;tryPlay()}
+      else if(hv.src)hv.pause();
+    },{threshold:0}).observe(hv);
+
+    document.addEventListener('visibilitychange',function(){
+      if(!hv.src)return;
+      if(document.hidden)hv.pause();
+      else {tries=0;tryPlay()}
+    });
+  }
+}
+
+/* Пока обложка на экране, шапка растворяется в кадре */
+new IntersectionObserver(function(e){
+  document.body.classList.toggle('cover',e[0].isIntersecting);
+},{threshold:0,rootMargin:'-56px 0px 0px 0px'}).observe(document.getElementById('top'));
+
+/* Меню-комплект */
+var b=document.getElementById('burger'),m=document.getElementById('menu');
+function toggle(open){
+  document.body.classList.toggle('open',open);
+  b.setAttribute('aria-expanded',open?'true':'false');
+  b.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+}
+b.addEventListener('click',function(){toggle(!document.body.classList.contains('open'))});
+document.getElementById('menu-x').addEventListener('click',function(){toggle(false)});
+m.addEventListener('click',function(e){if(e.target.closest('a'))toggle(false)});
+addEventListener('keydown',function(e){if(e.key==='Escape')toggle(false)});
+
+/* Счётчики экспликации: цифра набирается с замедлением к концу */
+var cIO=new IntersectionObserver(function(es,ob){es.forEach(function(e){
+  if(!e.isIntersecting)return;
+  ob.unobserve(e.target);
+  var el=e.target,to=+el.dataset.to,suf=el.dataset.suf||'';
+  if(reduced){el.textContent=to+suf;return}
+  var t0=0;
+  requestAnimationFrame(function step(t){
+    if(!t0)t0=t;
+    var k=Math.min(1,(t-t0)/1300),ease=1-Math.pow(1-k,3);
+    el.textContent=Math.round(to*ease)+suf;
+    if(k<1)requestAnimationFrame(step);
+  });
+})},{threshold:.5});
+document.querySelectorAll('.count').forEach(function(c){cIO.observe(c)});
+
+/* Ведомость: раскрытие позиции */
+document.querySelectorAll('.spec-h').forEach(function(h){
+  h.addEventListener('click',function(){
+    var open=h.parentElement.classList.toggle('on');
+    h.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+
+/*
+   Барабан камер.
+
+   Положение карточки считается от расстояния до выбранной, причём по
+   кратчайшей дуге: при трёх позициях крайние всегда стоят слева и
+   справа от центра, а не улетают в один край. Сдвиг, поворот и уход
+   вглубь растут с расстоянием, поэтому дуга читается объёмной.
+*/
+var stage=document.getElementById('drum-stage');
+if(stage){
+  var cards=[].slice.call(stage.querySelectorAll('.drum-card'));
+  var dets=[].slice.call(document.querySelectorAll('.drum-d'));
+  var cnt=document.getElementById('drum-count');
+  var K=cards.length,cur=0;
+  function paint(){
+    cards.forEach(function(c,i){
+      /* кратчайшее расстояние по кругу: -1, 0, 1 при трёх позициях */
+      var d=((i-cur+K+Math.floor(K/2))%K)-Math.floor(K/2);
+      var ad=Math.abs(d);
+      c.style.transform='translateX('+(d*52)+'%) rotateY('+(d*-36)+'deg) '
+        +'translateZ('+(ad*-210)+'px) scale('+(1-ad*0.08)+')';
+      c.style.opacity=ad>1.5?'0':String(1-ad*0.3);
+      c.style.filter=ad?'grayscale('+Math.min(1,ad*0.5)+')':'none';
+      c.style.zIndex=String(20-ad);
+      c.classList.toggle('on',i===cur);
+      c.setAttribute('aria-current',i===cur?'true':'false');
+    });
+    dets.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+    cnt.textContent=('0'+(cur+1)).slice(-2)+' / '+('0'+K).slice(-2);
+  }
+  function go(n){cur=(n%K+K)%K;paint()}
+  document.getElementById('drum-prev').addEventListener('click',function(){go(cur-1)});
+  document.getElementById('drum-next').addEventListener('click',function(){go(cur+1)});
+  cards.forEach(function(c){
+    c.addEventListener('click',function(){go(+c.dataset.i)})});
+
+  /* Перетаскивание: барабан крутится пальцем и мышью */
+  var x0=null;
+  stage.addEventListener('pointerdown',function(e){
+    x0=e.clientX;stage.classList.add('grabbing')});
+  function drop(e){
+    if(x0===null)return;
+    var dx=e.clientX-x0;
+    x0=null;stage.classList.remove('grabbing');
+    if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));
+  }
+  addEventListener('pointerup',drop,{passive:true});
+  addEventListener('pointercancel',function(){
+    x0=null;stage.classList.remove('grabbing')},{passive:true});
+
+  /* Стрелки клавиатуры, когда фокус внутри барабана */
+  stage.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){go(cur+1);cards[cur].focus();e.preventDefault()}
+    if(e.key==='ArrowLeft'){go(cur-1);cards[cur].focus();e.preventDefault()}
+  });
+  paint();
+}
+
+/*
+   Колесо работ.
+
+   Круг проворачивается по мере прохода блока через экран. Считается в
+   кадровом цикле и только пока блок виден: обработчик прокрутки главный
+   поток не занимает, а за пределами экрана цикл останавливается совсем.
+   Пока курсор на карточке, круг замирает — иначе приближённую карточку
+   не рассмотреть, она уезжает вместе с кругом.
+*/
+var ring=document.getElementById('whRing');
+if(ring){
+  var wstage=ring.parentElement,wnow=document.getElementById('whNow');
+  var wslots=[].slice.call(ring.querySelectorAll('.wh-slot'));
+  var wnames=wslots.map(function(s){
+    return s.querySelector('.wh-name').textContent});
+
+  function wtoggle(s){
+    var open=s.getAttribute('aria-expanded')==='true';
+    wslots.forEach(function(x){x.setAttribute('aria-expanded','false')});
+    if(!open)s.setAttribute('aria-expanded','true');
+  }
+  ring.addEventListener('click',function(e){
+    var s=e.target.closest('.wh-slot'); if(s)wtoggle(s)});
+  ring.addEventListener('keydown',function(e){
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    var s=e.target.closest('.wh-slot'); if(!s)return;
+    e.preventDefault(); wtoggle(s);
+  });
+
+  var frozen=false;
+  function wmark(s){
+    frozen=true;
+    if(wnow){var i=+s.dataset.i; wnow.textContent='поз. '+(i+1)+' — '+wnames[i]}
+  }
+  ring.addEventListener('mouseover',function(e){
+    var s=e.target.closest('.wh-slot'); if(s)wmark(s)});
+  ring.addEventListener('mouseout',function(e){
+    var to=e.relatedTarget;
+    if(!to||!to.closest||!to.closest('.wh-slot'))frozen=false});
+  ring.addEventListener('focusin',function(e){
+    var s=e.target.closest('.wh-slot'); if(s)wmark(s)});
+  ring.addEventListener('focusout',function(){frozen=false});
+
+  var rot=0,wraf=null;
+  var wheelWide=matchMedia('(min-width: 681px)');
+  function wframe(){
+    if(!reduced&&wheelWide.matches&&!frozen){
+      var r=wstage.getBoundingClientRect();
+      var prog=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight+r.height)));
+      rot+=(prog*180-rot)*0.1;   /* пол-оборота на проход, со сглаживанием */
+      ring.style.setProperty('--rot',rot.toFixed(2)+'deg');
+    }
+    wraf=requestAnimationFrame(wframe);
+  }
+  new IntersectionObserver(function(es){
+    if(es[0].isIntersecting){if(!wraf)wraf=requestAnimationFrame(wframe)}
+    else if(wraf){cancelAnimationFrame(wraf);wraf=null}
+  },{threshold:0}).observe(wstage);
+}
+
+/* Переключатель спецификации */
+var picks=document.querySelectorAll('.pick button');
+picks.forEach(function(p){p.addEventListener('click',function(){
+  picks.forEach(function(x){x.setAttribute('aria-selected','false')});
+  p.setAttribute('aria-selected','true');
+  document.querySelectorAll('.pane').forEach(function(pn){
+    pn.classList.toggle('on',pn.id===p.dataset.p)});
+})});
+
+/* Линейка листов: подсветка текущего */
+var rail=document.getElementById('rail');
+var links=[].slice.call(rail.querySelectorAll('a'));
+var ratios={};
+var rIO=new IntersectionObserver(function(es){
+  es.forEach(function(e){ratios[e.target.id]=e.isIntersecting?e.intersectionRatio:0});
+  var best='',mx=0;
+  Object.keys(ratios).forEach(function(k){if(ratios[k]>mx){mx=ratios[k];best=k}});
+  links.forEach(function(a){a.classList.toggle('active',a.dataset.sec===best)});
+},{threshold:[0,.1,.3,.6,1],rootMargin:'-10% 0px -40% 0px'});
+links.forEach(function(a){
+  var s=document.getElementById(a.dataset.sec); if(s)rIO.observe(s)});
+
+/* Линейка и кнопка наверх появляются после титульного листа */
+var up=document.getElementById('up');
+new IntersectionObserver(function(e){
+  var past=!e[0].isIntersecting;
+  rail.classList.toggle('show',past);
+  up.classList.toggle('show',past);
+},{threshold:0}).observe(document.getElementById('top'));
+up.addEventListener('click',function(){
+  scrollTo({top:0,behavior:reduced?'auto':'smooth'})});
+
+/*
+   Подбор станции ПОДСОЛНУХ.
+
+   NOMINAL — номинал одной станции СБ-6000 в киловаттах. Если пик выше,
+   нужна вторая. Расчёт предварительный: точную конфигурацию инженер
+   подтверждает по перечню оборудования.
+*/
+var calc=document.querySelector('.calc');
+if(calc){
+  var NOMINAL=6;
+  var boxes=[].slice.call(calc.querySelectorAll('.load input'));
+  var hrs=calc.querySelector('#hrs'),hout=calc.querySelector('#hout');
+  var rN=calc.querySelector('#r-n'),rP=calc.querySelector('#r-peak');
+  var rD=calc.querySelector('#r-day'),vd=calc.querySelector('#verdict');
+  function recalc(){
+    var on=boxes.filter(function(x){return x.checked});
+    var peak=on.reduce(function(s,x){return s + +x.dataset.kw},0);
+    var h=+hrs.value,day=peak*h;
+    hout.textContent=h+' ч';
+    rN.textContent=on.length;
+    rP.textContent=peak.toFixed(2).replace('.',',')+' кВт';
+    rD.textContent=day.toFixed(1).replace('.',',')+' кВт·ч';
+    if(!on.length){
+      vd.textContent='Отметьте потребителей, и мы покажем предварительную мощность.';
+    }else if(peak>NOMINAL){
+      vd.textContent='Пик выше номинала одной станции. Потребуется '
+        +Math.ceil(peak/NOMINAL)+' станции или разнесение нагрузок по времени. '
+        +'Пришлите перечень оборудования, инженер соберёт точную схему.';
+    }else{
+      vd.textContent='Одна станция закрывает эту нагрузку с запасом '
+        +Math.round((1-peak/NOMINAL)*100)+' %. Расчёт предварительный.';
+    }
+  }
+  boxes.forEach(function(x){x.addEventListener('change',recalc)});
+  hrs.addEventListener('input',recalc);
+  recalc();
+}
+
+/*
+   Глобус ЭЛЕКТРОВОЗа.
+
+   Библиотека подгружается только когда блок появляется на экране: до
+   этого WebGL не инициализируется. Если CDN недоступен, шара просто
+   не будет, остальное содержимое раздела не пострадает.
+*/
+var gbox=document.getElementById('globe-box');
+if(gbox&&!reduced){
+  new IntersectionObserver(function(e,ob){
+    if(!e[0].isIntersecting)return;
+    ob.disconnect();
+    loadCobe().then(function(mod){
+      var cv=document.getElementById('globe'),size=cv.offsetWidth||600;
+      var phi=0,drag=null,dphi=0,dtheta=0,offPhi=0,offTheta=0,paused=false;
+      var globe=mod.default(cv,{
+        devicePixelRatio:Math.min(devicePixelRatio||1,2),
+        width:size*2,height:size*2,phi:0,theta:0.22,
+        dark:0,diffuse:1.2,mapSamples:15000,mapBrightness:5.2,
+        baseColor:[0.92,0.91,0.88],markerColor:[0.85,0.22,0.06],
+        glowColor:[0.86,0.85,0.82],markers:GLOBE_POINTS,
+        onRender:function(st){
+          if(!paused)phi+=0.0032;
+          st.phi=phi+offPhi+dphi;st.theta=0.22+offTheta+dtheta;
+        }
+      });
+      requestAnimationFrame(function(){gbox.classList.add('ready')});
+      cv.addEventListener('pointerdown',function(e){
+        drag={x:e.clientX,y:e.clientY};paused=true;
+        cv.setPointerCapture&&cv.setPointerCapture(e.pointerId)});
+      addEventListener('pointermove',function(e){if(!drag)return;
+        dphi=(e.clientX-drag.x)/280;dtheta=(e.clientY-drag.y)/900},{passive:true});
+      function up2(){if(drag){offPhi+=dphi;offTheta+=dtheta;dphi=dtheta=0}
+        drag=null;paused=false}
+      addEventListener('pointerup',up2,{passive:true});
+      addEventListener('pointercancel',up2,{passive:true});
+      document.addEventListener('visibilitychange',function(){
+        if(globe&&globe.toggle)globe.toggle()});
+    }).catch(function(){console.warn('Глобус недоступен')});
+  },{threshold:.2}).observe(gbox);
+}
+})();
+</script>
+</body></html>
